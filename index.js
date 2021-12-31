@@ -1,6 +1,8 @@
-import { searchByName, nextByDate } from './src/utils/search.js'
+import { nextByDate } from './src/utils/search.js'
 import luxon from 'luxon'
 
-// const res = searchByName('åpenbaringsdag')
-const res = nextByDate('2022 01 02')
-console.log(res)
+// const res = searchByName('1. treenig')
+// const res = nextByDate('2021 01 02')
+// console.log(res)
+
+export { nextByDate }
