@@ -1,17 +1,17 @@
 {
-	"name": "church-year",
-	"version": "1.0.2",
-	"description": "Module for å regne ut kirkearsdagene",
-	"type": "module",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"dependencies": {
-		"computus": "^1.0.5",
-		"luxon": "^2.2.0"
-	}
+  "name": "church-year",
+  "version": "1.0.8",
+  "description": "Module for å regne ut kirkearsdagene",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "computus": "^1.0.5",
+    "luxon": "^2.2.0"
+  }
 }

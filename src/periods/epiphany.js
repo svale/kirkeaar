@@ -6,6 +6,7 @@ const epiphany = () => {
     [
       'Kristi Åpenbaringsdag',
       epiphanyStart,
+      'white',
     ],
     [
       '2. Søndag i Åpenbaringstiden',

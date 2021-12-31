@@ -6,22 +6,27 @@ const christmas = () => {
     [
       'Julaften',
       christmasEve,
+      'white',
     ],
     [
       'Juledag',
       christmasEve.plus({ day: 1 }),
+      'white',
     ],
     [
       '2. Juledag',
       christmasEve.plus({ day: 2 }),
+      'red',
     ],
     [
       'Nyttårsaften',
       christmasEve.endOf('year'),
+      'white',
     ],
     [
       'Nyttårsdag',
       christmasEve.endOf('year').plus({ day: 1 }),
+      'white',
     ],
   ]
 

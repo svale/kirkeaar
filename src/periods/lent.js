@@ -3,27 +3,48 @@ import makePayload from '../utils/makePayload.js'
 
 const lent = () => {
   const lentNames = [
-    'Askeonsdag',
-    '1. Søndag i Fastetiden',
-    '2. Søndag i Fastetiden',
-    '3. Søndag i Fastetiden',
-    'Maria Budskapsdag',
-    '4. Søndag i Fastetiden',
-    'Palmesøndag',
+    [
+      'Askeonsdag',
+      askeonsdag,
+      'purple',
+    ],
+    [
+      '1. Søndag i Fastetiden',
+      computus.minus({ weeks: 6 }).endOf('week'),
+      'purple',
+    ],
+    [
+      '2. Søndag i Fastetiden',
+      computus.minus({ weeks: 5 }).endOf('week'),
+      'purple',
+    ],
+    [
+      '3. Søndag i Fastetiden',
+      computus.minus({ weeks: 4 }).endOf('week'),
+      'purple',
+    ],
+    [
+      'Maria Budskapsdag',
+      computus.minus({ weeks: 3 }).endOf('week'),
+      'white',
+    ],
+    [
+      '4. Søndag i Fastetiden',
+      computus.minus({ weeks: 2 }).endOf('week'),
+      'purple',
+    ],
+    [
+      'Palmesøndag',
+      computus.minus({ weeks: 1 }).endOf('week'),
+      'purple',
+    ],
   ]
 
   const payload = []
 
-  console.log(computus.toString())
-  payload.push(makePayload(lentNames[0], askeonsdag))
-
-  for (let i = 1; i <= 6; i++) {
-    payload.push(
-      makePayload(
-        lentNames[i],
-        computus.minus({ weeks: 6 - i + 1 }).endOf('week').startOf('day')
-      )
-    )
+  // console.log(computus.toString())
+  for (let day of lentNames) {
+    payload.push(makePayload(day[0], day[1], day[2]))
   }
 
   return payload
