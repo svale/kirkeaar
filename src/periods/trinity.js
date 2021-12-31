@@ -2,80 +2,180 @@ import { Interval, DateTime } from 'luxon'
 import { pinse } from '../constants/constants.js'
 import calculateFirstAdvent from '../constants/calculateFirstAdvent.js'
 import { startYear } from '../constants/constants.js'
+import makePayload from '../utils/makePayload.js'
 
 const trinity = () => {
   const firstAdventNextYear = calculateFirstAdvent(startYear + 1)
 
   // Potensielt 27 søndager i Treenighetstiden
   const trinityNames = [
-    'Treenighetssøndag',
-    '2. Søndag i Treenighetstiden',
-    '3. Søndag i Treenighetstiden',
-    '4. Søndag i Treenighetstiden',
-    '5. Søndag i Treenighetstiden',
-    '6. Søndag i Treenighetstiden',
-    '7. Søndag i Treenighetstiden',
-    '8. Søndag i Treenighetstiden',
-    '9. Søndag i Treenighetstiden',
-    '10. Søndag i Treenighetstiden',
-    '11. Søndag i Treenighetstiden',
-    '12. Søndag i Treenighetstiden',
-    '13. Søndag i Treenighetstiden',
-    '14. Søndag i Treenighetstiden',
-    '15. Søndag i Treenighetstiden',
-    '16. Søndag i Treenighetstiden',
-    '17. Søndag i Treenighetstiden',
-    '18. Søndag i Treenighetstiden',
-    '19. Søndag i Treenighetstiden',
-    '20. Søndag i Treenighetstiden',
-    '21. Søndag i Treenighetstiden',
-    '22. Søndag i Treenighetstiden',
-    '23. Søndag i Treenighetstiden',
-    '24. Søndag i Treenighetstiden',
-    '25. Søndag i Treenighetstiden',
-    '26. Søndag i Treenighetstiden',
-    '27. Søndag i Treenighetstiden',
+    [
+      'Treenighetssøndag',
+      pinse.plus({ weeks: 1 }).endOf('week'),
+      'white',
+    ],
+    [
+      '2. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 2 }).endOf('week'),
+      'green',
+    ],
+    [
+      '3. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 3 }).endOf('week'),
+      'green',
+    ],
+    [
+      '4. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 4 }).endOf('week'),
+      'green',
+    ],
+    [
+      '5. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 5 }).endOf('week'),
+      'green',
+    ],
+    [
+      '6. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 6 }).endOf('week'),
+      'purple',
+    ],
+    [
+      '7. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 7 }).endOf('week'),
+      'green',
+    ],
+    [
+      '8. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 8 }).endOf('week'),
+      'green',
+    ],
+    [
+      '9. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 9 }).endOf('week'),
+      'green',
+    ],
+    [
+      '10. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 10 }).endOf('week'),
+      'green',
+    ],
+    [
+      '11. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 11 }).endOf('week'),
+      'green',
+    ],
+    [
+      '12. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 12 }).endOf('week'),
+      'green',
+    ],
+    [
+      '13. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 13 }).endOf('week'),
+      'green',
+    ],
+    [
+      '14. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 14 }).endOf('week'),
+      'green',
+    ],
+    [
+      '15. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 15 }).endOf('week'),
+      'green',
+    ],
+    [
+      '16. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 16 }).endOf('week'),
+      'green',
+    ],
+    [
+      '17. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 17 }).endOf('week'),
+      'green',
+    ],
+    [
+      '18. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 18 }).endOf('week'),
+      'green',
+    ],
+    [
+      '19. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 19 }).endOf('week'),
+      'green',
+    ],
+    [
+      '20. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 20 }).endOf('week'),
+      'green',
+    ],
+    [
+      '21. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 21 }).endOf('week'),
+      'green',
+    ],
+    [
+      '22. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 22 }).endOf('week'),
+      'green',
+    ],
+    [
+      '23. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 23 }).endOf('week'),
+      'green',
+    ],
+    [
+      '24. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 24 }).endOf('week'),
+      'green',
+    ],
+    [
+      '25. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 25 }).endOf('week'),
+      'green',
+    ],
+    [
+      '26. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 26 }).endOf('week'),
+      'green',
+    ],
+    [
+      '27. Søndag i Treenighetstiden',
+      pinse.plus({ weeks: 27 }).endOf('week'),
+      'green',
+    ],
   ]
 
   const trinityEndingNames = [
-    'Bots og Bønnedag',
-    'Allehelgensdag',
-    'Kristi kongedag',
+    [
+      'Bots og Bønnedag',
+      DateTime.local(startYear + 1, 10)
+        .setZone('Europe/Oslo')
+        .endOf('week')
+        .plus({ weeks: 4 }),
+      'purple',
+    ],
+    [
+      'Allehelgensdag',
+      DateTime.local(startYear + 1, 11)
+        .setZone('Europe/Oslo')
+        .startOf('month')
+        .endOf('week'),
+      'white',
+    ],
+    [
+      'Kristi kongedag',
+      firstAdventNextYear.minus({ weeks: 1 }).setZone('Europe/Oslo'),
+    ],
   ]
 
   let payload = []
 
-  const bot = DateTime.local(startYear + 1, 10)
-    .setZone('Europe/Oslo')
-    .endOf('week')
-    .plus({ weeks: 4 })
+  const trinityEndingDays = []
 
-  const allehelgen = DateTime.local(startYear + 1, 11)
-    .setZone('Europe/Oslo')
-    .startOf('month')
-    .endOf('week')
-
-  const kristiKongedag = firstAdventNextYear
-    .minus({ weeks: 1 })
-    .setZone('Europe/Oslo')
-
-  const trinityEndingDays = [
-    {
-      name: trinityEndingNames[0],
-      dateTime: bot,
-      day: bot.toString(),
-    },
-    {
-      name: trinityEndingNames[1],
-      dateTime: allehelgen,
-      day: allehelgen.toString(),
-    },
-    {
-      name: trinityEndingNames[2],
-      dateTime: kristiKongedag,
-      day: kristiKongedag.toString(),
-    },
-  ]
+  for (let day of trinityEndingNames) {
+    trinityEndingDays.push(makePayload(day[0], day[1], day[2]))
+  }
 
   let counter = 0
   while (
@@ -83,15 +183,10 @@ const trinity = () => {
     payload[payload.length - 1].dateTime <
       trinityEndingDays[0].dateTime.minus({ week: 1 })
   ) {
-    payload.push({
-      number: Number(trinityNames[counter].split('.')[0]),
-      name: trinityNames[counter],
-      dateTime: pinse.plus({ weeks: counter + 1 }),
-      day: pinse.plus({ weeks: counter + 1 }).toString(),
-    })
-    if (counter === 0) {
-      payload[0].number = 1
-    }
+    const name = trinityNames[counter][0]
+    const date = trinityNames[counter][1]
+    const color = trinityNames[counter][2]
+    payload.push(makePayload(name, date, color))
 
     counter++
   }
@@ -110,12 +205,11 @@ const trinity = () => {
     ]
     for (let i = 1; i < intervalAllehelgensKongedag.length('weeks'); i++) {
       const number = payload.length + 1
-      payload.push({
-        number: number,
-        name: `${number}. Søndag i Treenighetstiden`,
-        dateTime: trinityEndingDays[1].dateTime.plus({ weeks: i }),
-        day: trinityEndingDays[1].dateTime.plus({ weeks: i }).toString(),
-      })
+      const name = `${number}. Søndag i Treenighetstiden`
+      const date = trinityEndingDays[1].dateTime.plus({ weeks: i })
+      const color = 'green'
+
+      payload.push(makePayload(name, date, color))
     }
     payload.push(trinityEndingDays[2])
   } else {
