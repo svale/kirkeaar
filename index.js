@@ -9,6 +9,6 @@ import { trinity } from './src/periods/trinity.js'
 // const res = searchByName('1. treenig')
 // const res = nextByDate('2022 01 02')
 // console.log(res)
-console.log(trinity())
+// console.log(trinity())
 
 export { nextByDate }
