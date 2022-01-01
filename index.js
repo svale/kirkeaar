@@ -11,4 +11,5 @@ import { trinity } from './src/periods/trinity.js'
 // console.log(res)
 // console.log(trinity())
 
-export { nextByDate }
+const church = { nextByDate }
+export default church

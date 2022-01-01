@@ -2,20 +2,6 @@ import churchYear from '../periods/churchYear.js'
 import months from '../constants/months.js'
 import { DateTime } from 'luxon'
 
-const searchByName = query => {
-  let search = query
-  search = search.replaceAll('.', '\\.')
-  search = query.replaceAll(' ', '.*')
-  const safeString = new RegExp('^' + search + '.*', 'i')
-  //   console.log({ query, safeString })
-  return churchYear.find(element => element.name.match(safeString))
-}
-
-// const searchByDate = date => {
-//   const safeString = new RegExp(date.replaceAll(' ', '-'))
-//   return churchYear.find(element => element.day.match(safeString))
-// }
-
 const nextByDate = date => {
   let dateTime
   const substitute = (dateString, index, separator) => {
@@ -65,4 +51,4 @@ const nextByDate = date => {
   return search
 }
 
-export { searchByName, nextByDate }
+export { nextByDate }

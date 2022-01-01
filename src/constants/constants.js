@@ -7,6 +7,7 @@ const christmasEve = DateTime.fromISO(`${startYear}-12-24`).setZone(
   'Europe/Oslo'
 )
 const firstSundayOfAdvent = calculateFirstAdvent(startYear)
+const firstSundayOfAdventNextYear = calculateFirstAdvent(startYear + 1)
 const computus = DateTime.fromJSDate(gregorian(startYear + 1)).setZone('UTC+1')
 const pinse = computus.plus({ days: 50 })
 const epiphanyStart = christmasEve.endOf('year').plus({ day: 1 }).endOf('week')
