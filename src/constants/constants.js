@@ -1,8 +1,9 @@
 import { DateTime } from 'luxon'
 import { gregorian } from 'computus'
 import calculateFirstAdvent from './calculateFirstAdvent.js'
+import { calculateStartYear } from '../utils/calculateStartYear.js'
 
-const startYear = 2021
+const startYear = calculateStartYear(DateTime.now())
 const christmasEve = DateTime.fromISO(`${startYear}-12-24`).setZone(
   'Europe/Oslo'
 )
@@ -21,4 +22,5 @@ export {
   pinse,
   epiphanyStart,
   askeonsdag,
+  firstSundayOfAdventNextYear,
 }

@@ -10,4 +10,5 @@ nextByDate('2021-04-31')
 nextByDate(isLuxonDateTime)
 ```
 # ToDo
-- [ ] startOfYear is hardcoded, needs to be user specified.
+- [x] startYear is hardcoded, needs to be dynamic.
+- startYear is now dynamic based on current date
