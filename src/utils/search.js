@@ -1,6 +1,7 @@
 import churchYear from '../periods/churchYear.js'
 import months from '../constants/months.js'
 import { DateTime } from 'luxon'
+import { nextDay } from './nextDay.js'
 
 const nextByDate = date => {
   let dateTime
@@ -32,13 +33,12 @@ const nextByDate = date => {
     dateTime = DateTime.fromISO(date)
   }
 
-  let search = churchYear.find(element =>
-    element.dateTime.hasSame(dateTime, 'day')
-  )
+  let search
 
-  if (search === undefined) {
+  while (search === undefined) {
+    dateTime = nextDay(dateTime)
     search = churchYear.find(element =>
-      element.dateTime.hasSame(dateTime.endOf('week'), 'day')
+      element.dateTime.hasSame(dateTime, 'day')
     )
   }
 
@@ -48,7 +48,7 @@ const nextByDate = date => {
     result: search,
   }
 
-  return search
+  return results
 }
 
 export { nextByDate }
