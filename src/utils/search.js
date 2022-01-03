@@ -48,7 +48,7 @@ const nextByDate = date => {
     result: search,
   }
 
-  return results
+  return search
 }
 
 export { nextByDate }
