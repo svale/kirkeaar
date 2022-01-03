@@ -1,6 +1,6 @@
 {
   "name": "church-year",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Module for å regne ut kirkeårsdagene",
   "type": "module",
   "main": "index.js",
