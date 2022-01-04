@@ -49,7 +49,7 @@ Output:
 ```
 
 ## churchYear({day, year})
-`churchYear({day, year})` where either a date luxon date is supplied and the year is calculated, or the church years start year is supplied as `churchYear({ year: 2021 })` and the entire church year for 2021-2022 is generated and returned.
+`churchYear({day, year})`{.js} where either a date luxon date is supplied and the year is calculated, or the church years start year is supplied as `churchYear({ year: 2021 })`{:.js} and the entire church year for 2021-2022 is generated and returned.
 
 # ToDo
 - [x] startYear is hardcoded, needs to be dynamic.
