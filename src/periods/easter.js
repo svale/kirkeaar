@@ -1,8 +1,11 @@
 import { Interval } from 'luxon'
-import { computus, pinse } from '../constants/constants.js'
+import { getComputus } from '../constants/computus.js'
+import { getPinse } from '../constants/pinse.js'
 import makePayload from '../utils/makePayload.js'
 
-const easter = () => {
+const easter = startYear => {
+  const computus = getComputus(startYear)
+  const pinse = getPinse(startYear)
   const easterNames = [
     [
       'Skjærtorsdag',

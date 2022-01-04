@@ -9,4 +9,4 @@ const calculateFirstAdvent = year => {
   }
 }
 
-export default calculateFirstAdvent
+export { calculateFirstAdvent }

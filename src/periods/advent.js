@@ -1,12 +1,11 @@
-import { DateTime } from 'luxon'
-import { firstSundayOfAdvent } from '../constants/constants.js'
+import { calculateFirstAdvent } from '../utils/calculateFirstAdvent.js'
 import makePayload from '../utils/makePayload.js'
 
-const advent = () => {
+const advent = startYear => {
   const payload = []
 
   for (let i = 0; i < 4; i++) {
-    const firstAdvent = DateTime.fromISO(firstSundayOfAdvent)
+    const firstAdvent = calculateFirstAdvent(startYear)
     const currentAdvent = firstAdvent.plus({ weeks: i })
     const name = `${i + 1}. Søndag i Advent`
     const day = currentAdvent

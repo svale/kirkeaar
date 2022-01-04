@@ -1,15 +1,11 @@
 import { Interval, DateTime } from 'luxon'
-import {
-  firstSundayOfAdvent,
-  firstSundayOfAdventNextYear,
-  pinse,
-} from '../constants/constants.js'
-import { startYear } from '../constants/constants.js'
+import { getPinse } from '../constants/pinse.js'
+import { calculateFirstAdvent } from '../utils/calculateFirstAdvent.js'
 import makePayload from '../utils/makePayload.js'
 
-const trinity = () => {
-  firstSundayOfAdventNextYear
-
+const trinity = startYear => {
+  const pinse = getPinse(startYear)
+  const firstSundayOfAdventNextYear = calculateFirstAdvent(startYear + 1)
   // Potensielt 27 søndager i Treenighetstiden
   const trinityNames = [
     [
@@ -226,5 +222,3 @@ const trinity = () => {
 }
 
 export { trinity }
-
-trinity()

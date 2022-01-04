@@ -1,7 +1,10 @@
-import { computus, askeonsdag } from '../constants/constants.js'
+import { getAskeonsdag } from '../constants/askeonsdag.js'
+import { getComputus } from '../constants/computus.js'
 import makePayload from '../utils/makePayload.js'
 
-const lent = () => {
+const lent = startYear => {
+  const computus = getComputus(startYear)
+  const askeonsdag = getAskeonsdag(startYear)
   const lentNames = [
     [
       'Askeonsdag',

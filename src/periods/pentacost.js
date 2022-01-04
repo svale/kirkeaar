@@ -1,7 +1,8 @@
-import { pinse } from '../constants/constants.js'
+import { getPinse } from '../constants/pinse.js'
 import makePayload from '../utils/makePayload.js'
 
-const pentacost = () => {
+const pentacost = startYear => {
+  const pinse = getPinse(startYear)
   const pentacostNames = [
     [
       'Kristi Himmelfartsdag',

@@ -1,7 +1,8 @@
-import { christmasEve } from '../constants/constants.js'
+import { getChristmasEve } from '../constants/christmasEve.js'
 import makePayload from '../utils/makePayload.js'
 
-const christmas = () => {
+const christmas = startYear => {
+  const christmasEve = getChristmasEve(startYear)
   const christmasName = [
     [
       'Julaften',
@@ -10,7 +11,7 @@ const christmas = () => {
     ],
     [
       'Juledag',
-      christmasEve.plus({ day: 1 }),
+      christmasEve.plus({ days: 1 }),
       'white',
     ],
     [
@@ -39,4 +40,4 @@ const christmas = () => {
   return payload
 }
 
-export { christmas, christmasEve }
+export { christmas }

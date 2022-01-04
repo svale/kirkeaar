@@ -1,7 +1,13 @@
-import { askeonsdag, epiphanyStart } from '../constants/constants.js'
+import { getChristmasEve } from '../constants/christmasEve.js'
+import { getEpiphanyStart } from '../constants/epiphanyStart.js'
+import { getAskeonsdag } from '../constants/askeonsdag.js'
 import makePayload from '../utils/makePayload.js'
 
-const epiphany = () => {
+const epiphany = startYear => {
+  const christmasEve = getChristmasEve(startYear)
+  const epiphanyStart = getEpiphanyStart(startYear)
+  const askeonsdag = getAskeonsdag(startYear)
+
   const epiphanyNames = [
     [
       'Kristi Åpenbaringsdag',

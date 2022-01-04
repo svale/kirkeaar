@@ -6,22 +6,35 @@ import { easter } from './easter.js'
 import { pentacost } from './pentacost.js'
 import { trinity } from './trinity.js'
 
-const adventDays = advent()
-const christmasDays = christmas()
-const epiphanyDays = epiphany()
-const lentDays = lent()
-const easterDays = easter()
-const pentacostDays = pentacost()
-const trinityDays = trinity()
+// From constants.js
+import { DateTime } from 'luxon'
+import { calculateFirstAdvent } from '../utils/calculateFirstAdvent.js'
+import { calculateStartYear } from '../utils/calculateStartYear.js'
 
-const churchYear = [
-  ...adventDays,
-  ...christmasDays,
-  ...epiphanyDays,
-  ...lentDays,
-  ...easterDays,
-  ...pentacostDays,
-  ...trinityDays,
-]
+const churchYear = date => {
+  // Constants
+  const startYear = calculateStartYear(date)
+  // console.log(bug)
+
+  // Period functions
+  const adventDays = advent(startYear)
+  const christmasDays = christmas(startYear)
+  const epiphanyDays = epiphany(startYear)
+  const lentDays = lent(startYear)
+  const easterDays = easter(startYear)
+  const pentacostDays = pentacost(startYear)
+  const trinityDays = trinity(startYear)
+
+  const payload = [
+    ...adventDays,
+    ...christmasDays,
+    ...epiphanyDays,
+    ...lentDays,
+    ...easterDays,
+    ...pentacostDays,
+    ...trinityDays,
+  ]
+  return payload
+}
 
 export default churchYear
