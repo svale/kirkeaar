@@ -21,12 +21,12 @@ const christmas = startYear => {
     ],
     [
       'Nyttårsaften',
-      christmasEve.endOf('year'),
+      christmasEve.endOf('year').startOf('day'),
       'white',
     ],
     [
       'Nyttårsdag',
-      christmasEve.endOf('year').plus({ day: 1 }),
+      christmasEve.endOf('year').plus({ day: 1 }).startOf('day'),
       'white',
     ],
   ]

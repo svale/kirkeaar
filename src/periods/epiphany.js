@@ -36,11 +36,11 @@ const epiphany = startYear => {
     ],
     [
       'Såmannssøndag',
-      askeonsdag.minus({ weeks: 3 }).endOf('week'),
+      askeonsdag.minus({ weeks: 3 }).endOf('week').startOf('day'),
     ],
     [
       'Kristi forklarelsesdag',
-      askeonsdag.minus({ week: 2 }).endOf('week'),
+      askeonsdag.minus({ week: 2 }).endOf('week').startOf('day'),
     ],
     [
       'Fastelavnssøndag',

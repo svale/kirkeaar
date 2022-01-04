@@ -44,7 +44,7 @@ const easter = startYear => {
   while (easterSundays > 2) {
     const week = 7 - (easterSundays - 1)
     let name = `${week + 1}. Søndag i Påsketiden`
-    const day = computus.endOf('week').plus({ week })
+    const day = computus.endOf('week').plus({ week }).startOf('day')
     const color = 'white'
 
     payload.push(makePayload(name, day, color))

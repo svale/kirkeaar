@@ -13,32 +13,32 @@ const lent = startYear => {
     ],
     [
       '1. Søndag i Fastetiden',
-      computus.minus({ weeks: 6 }).endOf('week'),
+      computus.minus({ weeks: 6 }).endOf('week').startOf('day'),
       'purple',
     ],
     [
       '2. Søndag i Fastetiden',
-      computus.minus({ weeks: 5 }).endOf('week'),
+      computus.minus({ weeks: 5 }).endOf('week').startOf('day'),
       'purple',
     ],
     [
       '3. Søndag i Fastetiden',
-      computus.minus({ weeks: 4 }).endOf('week'),
+      computus.minus({ weeks: 4 }).endOf('week').startOf('day'),
       'purple',
     ],
     [
       'Maria Budskapsdag',
-      computus.minus({ weeks: 3 }).endOf('week'),
+      computus.minus({ weeks: 3 }).endOf('week').startOf('day'),
       'white',
     ],
     [
       '4. Søndag i Fastetiden',
-      computus.minus({ weeks: 2 }).endOf('week'),
+      computus.minus({ weeks: 2 }).endOf('week').startOf('day'),
       'purple',
     ],
     [
       'Palmesøndag',
-      computus.minus({ weeks: 1 }).endOf('week'),
+      computus.minus({ weeks: 1 }).endOf('week').startOf('day'),
       'purple',
     ],
   ]

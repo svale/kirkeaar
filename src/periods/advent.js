@@ -8,7 +8,7 @@ const advent = startYear => {
     const firstAdvent = calculateFirstAdvent(startYear)
     const currentAdvent = firstAdvent.plus({ weeks: i })
     const name = `${i + 1}. Søndag i Advent`
-    const day = currentAdvent
+    const day = currentAdvent.startOf('day')
     const color = 'purple'
     payload.push(makePayload(name, day, color))
   }
