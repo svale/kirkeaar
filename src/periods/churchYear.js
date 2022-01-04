@@ -11,9 +11,18 @@ import { DateTime } from 'luxon'
 import { calculateFirstAdvent } from '../utils/calculateFirstAdvent.js'
 import { calculateStartYear } from '../utils/calculateStartYear.js'
 
-const churchYear = date => {
+const churchYear = ({ date, year }) => {
   // Constants
-  const startYear = calculateStartYear(date)
+  // console.info({ date, year })
+  let startYear
+
+  if (year) {
+    startYear = Number(year)
+    console.info('Generating based on year')
+  } else {
+    startYear = calculateStartYear(date)
+    console.info('Generating based on date')
+  }
   // console.log(bug)
 
   // Period functions

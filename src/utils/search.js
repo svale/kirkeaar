@@ -2,7 +2,6 @@ import churchYear from '../periods/churchYear.js'
 import months from '../constants/months.js'
 import { DateTime } from 'luxon'
 import { nextDay } from './nextDay.js'
-import { calculateStartYear } from './calculateStartYear.js'
 
 const nextByDate = date => {
   let startYear
@@ -38,7 +37,7 @@ const nextByDate = date => {
   // startYear = calculateStartYear(dateTime)
 
   let search
-  const churchYearArray = churchYear(dateTime)
+  const churchYearArray = churchYear({ date: dateTime })
 
   while (search === undefined) {
     dateTime = nextDay(dateTime)
