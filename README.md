@@ -1,5 +1,13 @@
 # Search functions
 
+## Installation
+```
+npm install church-year
+```
+```js
+import {nextByDate, churchYear} from 'church-year'
+```
+
 ## nextByDate(date)
 
 ```js
