@@ -51,6 +51,11 @@ Output:
 ## churchYear({day, year})
 `churchYear({day, year})` where either a date luxon date is supplied and the year is calculated, or the church years start year is supplied as `churchYear({ year: 2021 })` and the entire church year for 2021-2022 is generated and returned.
 
+```js
+churchYear({year: 2021})
+churchYear({year: '2021'})
+```
+
 # ToDo
 - [x] startYear is hardcoded, needs to be dynamic.
 - startYear is now dynamic based on current date
