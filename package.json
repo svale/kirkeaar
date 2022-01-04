@@ -12,7 +12,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "dnk",
+    "Den Norske Kirke",
+    "kirkeår"
+  ],
   "author": {
     "name": "Fredrik Arnstad",
     "email": "fredrik.arnstad@icloud.com"

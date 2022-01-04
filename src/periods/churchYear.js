@@ -7,8 +7,6 @@ import { pentacost } from './pentacost.js'
 import { trinity } from './trinity.js'
 
 // From constants.js
-import { DateTime } from 'luxon'
-import { calculateFirstAdvent } from '../utils/calculateFirstAdvent.js'
 import { calculateStartYear } from '../utils/calculateStartYear.js'
 
 const churchYear = ({ date, year }) => {

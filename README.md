@@ -56,6 +56,33 @@ Output:
 }
 ```
 
+## nextByName(query)
+```js
+nextByName('3 åpenbaring')
+```
+The query matched with regex.
+
+Output:
+```js
+[
+  {
+    name: '3. Søndag i Åpenbaringstiden',
+    day: '2023-01-15T00:00:00.000+01:00',
+    dateTime: DateTime {
+      ts: 1673737200000,
+      _zone: [IANAZone],
+      loc: [Locale],
+      invalid: null,
+      weekData: null,
+      c: [Object],
+      o: 60,
+      isLuxonDateTime: true
+    },
+    liturgical_color: { name: 'Grønn', hsl: 'hsla(103, 42%, 30%, 1)' }
+  }
+]
+```
+
 ## churchYear({day, year})
 `churchYear({day, year})` where either a date luxon date is supplied and the year is calculated, or the church years start year is supplied as `churchYear({ year: 2021 })` and the entire church year for 2021-2022 is generated and returned.
 
