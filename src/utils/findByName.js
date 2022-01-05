@@ -18,6 +18,8 @@ const findByName = (query, startYear = calculateStartYear(DateTime.now())) => {
   const filter = year.filter(day => {
     return day.name.match(regexQuery)
   })
+  const payload = { filter, regexQuery, year }
+  console.log({ findByName: payload })
   return filter
 }
 export { findByName }

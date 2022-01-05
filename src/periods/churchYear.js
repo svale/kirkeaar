@@ -41,6 +41,7 @@ const churchYear = ({ date, year }) => {
     ...pentacostDays,
     ...trinityDays,
   ]
+  console.log({ churchYear: payload })
   return payload
 }
 

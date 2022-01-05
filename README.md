@@ -94,5 +94,6 @@ churchYear({year: '2021'})
 ```
 
 # ToDo
-- [x] startYear is hardcoded, needs to be dynamic.
-- startYear is now dynamic based on current date
+- [ ] include minnedager
+- [ ] include informasjon om dag og/eller periode
+- [x] startYear is hardcoded, needs to be dynamic. *startYear is now dynamic based on current date*

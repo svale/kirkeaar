@@ -2,7 +2,11 @@ import { gregorian } from 'computus'
 import { DateTime } from 'luxon'
 
 const getComputus = startYear => {
-  return DateTime.fromJSDate(gregorian(startYear + 1)).setZone('UTC+1')
+  const computus = DateTime.fromJSDate(gregorian(startYear + 1)).setZone(
+    'UTC+1'
+  )
+  // console.log('getComputus: ', computus)
+  return computus
 }
 
 export { getComputus }

@@ -52,6 +52,7 @@ const nextByDate = date => {
     result: search,
   }
 
+  console.log({ nextByDate: results })
   return search
 }
 
