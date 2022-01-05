@@ -1,6 +1,7 @@
 import { Interval, DateTime } from 'luxon'
 import { getPinse } from '../constants/pinse.js'
 import { calculateFirstAdvent } from '../utils/calculateFirstAdvent.js'
+import { lastSundayOfMonth } from '../utils/lastSundayOfMonth.js'
 import makePayload from '../utils/makePayload.js'
 
 const trinity = startYear => {
@@ -148,10 +149,7 @@ const trinity = startYear => {
   const trinityEndingNames = [
     [
       'Bots og Bønnedag',
-      DateTime.local(startYear + 1, 10)
-        .setZone('Europe/Oslo')
-        .endOf('week')
-        .plus({ weeks: 4 }),
+      lastSundayOfMonth(DateTime.local(startYear + 1, 10)),
       'purple',
     ],
     [

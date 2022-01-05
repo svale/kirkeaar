@@ -102,6 +102,8 @@ churchYear({year: '2021'})
 ```
 
 # ToDo
+- [ ] Bots og bønnedag 2018-2019 skal være 27.oktober, får 3.nov
+
 - [ ] include minnedager
 - [ ] include informasjon om dag og/eller periode
 - [x] startYear is hardcoded, needs to be dynamic. *startYear is now dynamic based on current date*
