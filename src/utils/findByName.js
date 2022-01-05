@@ -12,16 +12,20 @@ const safeString = query => {
   return payload
 }
 
-const findByName = (query, startYear = calculateStartYear(DateTime.now())) => {
+const findByName = ({
+  query,
+  startYear = calculateStartYear(DateTime.now()),
+}) => {
   const year = churchYear({ year: startYear })
   const regexQuery = new RegExp(safeString(query), 'gi')
   const filter = year.filter(day => {
     return day.name.match(regexQuery)
   })
-  const payload = { filter, regexQuery, year }
+  const payload = { filter, regexQuery, year, startYear }
   console.log({ findByName: payload })
   return filter
 }
 export { findByName }
 
-// console.log(findByName('3_åpenbaring', 2021))
+// console.log(findByName({ query: '3 åpenbaring', startYear: 2019 }))
+// console.log(findByName({ query: '3 åpenbaring' }))

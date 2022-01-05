@@ -56,9 +56,17 @@ Output:
 }
 ```
 
-## findByName(query)
+## findByName({query, startYear})
 ```js
-findByName('3 åpenbaring')
+findByName({query: '3 åpenbaring'})
+```
+Unless `startYear` is specified, the current church years start year is used 
+```js
+startYear = calculateStartYear(DateTime.now())
+```
+Example with start year
+```js
+findByName({query: '3 åpenbaring', startYear : 2021})
 ```
 The query matched with regex.
 `.` gets escaped to `.*`
