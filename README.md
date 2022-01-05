@@ -61,6 +61,8 @@ Output:
 nextByName('3 åpenbaring')
 ```
 The query matched with regex.
+`.` gets escaped to `.*`
+Samee goes for `-`and `_`gets escaped to `.*`
 
 Output:
 ```js
