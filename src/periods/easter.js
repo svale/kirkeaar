@@ -9,27 +9,27 @@ const easter = startYear => {
   const easterNames = [
     [
       'Skjærtorsdag',
-      computus.minus({ days: 2 }),
+      computus.minus({ days: 3 }),
       'white',
     ],
     [
       'Langfredag',
-      computus.minus({ day: 1 }),
+      computus.minus({ day: 2 }),
       'white',
     ],
     [
       'Påskenatt',
-      computus,
+      computus.minus({ day: 1 }),
       'white',
     ],
     [
       'Påskedag',
-      computus.plus({ day: 1 }),
+      computus,
       'white',
     ],
     [
       '2. Påskedag',
-      computus.plus({ days: 2 }),
+      computus.plus({ days: 1 }),
       'white',
     ],
   ]

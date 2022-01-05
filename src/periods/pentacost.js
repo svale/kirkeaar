@@ -1,12 +1,14 @@
 import { getPinse } from '../constants/pinse.js'
+import { getComputus } from '../constants/computus.js'
 import makePayload from '../utils/makePayload.js'
 
 const pentacost = startYear => {
   const pinse = getPinse(startYear)
+  const computus = getComputus(startYear)
   const pentacostNames = [
     [
       'Kristi Himmelfartsdag',
-      pinse.minus({ days: 10 }),
+      computus.plus({ days: 40 }).startOf('day'),
       'white',
     ],
     [
