@@ -2,7 +2,11 @@ import { DateTime } from 'luxon'
 import churchYear from '../periods/churchYear.js'
 
 const safeString = query => {
-  let payload = `^${query.replaceAll('.', '\\.').replaceAll(' ', '.*')}.*`
+  let payload = `^${query
+    .replaceAll('.', '\\.')
+    .replaceAll(' ', '.*')
+    .replaceAll('-', '.*')
+    .replaceAll('_', '.*')}.*`
 
   return payload
 }
@@ -17,4 +21,4 @@ const findByName = (query, startYear = DateTime.now().year) => {
 }
 export { findByName }
 
-// console.log(findByName('3 åpenbaring'))
+// console.log(findByName('3_åpenbaring'))
