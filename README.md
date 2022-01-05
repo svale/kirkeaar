@@ -5,7 +5,7 @@
 npm install church-year
 ```
 ```js
-import {nextByDate, churchYear} from 'church-year'
+import {nextByDate, churchYear, findByName} from 'church-year'
 ```
 
 ## nextByDate(date)
@@ -56,9 +56,9 @@ Output:
 }
 ```
 
-## nextByName(query)
+## findByName(query)
 ```js
-nextByName('3 åpenbaring')
+findByName('3 åpenbaring')
 ```
 The query matched with regex.
 `.` gets escaped to `.*`
