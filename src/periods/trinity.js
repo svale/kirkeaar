@@ -154,7 +154,7 @@ const trinity = startYear => {
     ],
     [
       'Allehelgensdag',
-      DateTime.local(startYear + 1, 11)
+      DateTime.fromISO(`${startYear + 1}-11-01`)
         .setZone('Europe/Oslo')
         .startOf('month')
         .endOf('week'),
