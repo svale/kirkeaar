@@ -4,5 +4,3 @@ import churchYear from './src/periods/churchYear.js'
 
 const church = { nextByDate, churchYear, findByName }
 export default church
-
-console.log(churchYear(2021))
