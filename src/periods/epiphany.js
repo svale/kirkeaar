@@ -4,6 +4,7 @@ import { getAskeonsdag } from '../constants/askeonsdag.js'
 import makePayload from '../utils/makePayload.js'
 
 const epiphany = startYear => {
+  const period = 'epiphany'
   const periodInfo = `Åpenbaringstiden går fra Kristi Åpenbaringsdag, som er første søndag etter nyttår, og helt frem til fastetiden før påsken`
   const christmasEve = getChristmasEve(startYear)
   const epiphanyStart = getEpiphanyStart(startYear)
@@ -55,14 +56,16 @@ const epiphany = startYear => {
     if (day[1] < epiphanyNames[6][1]) {
       // console.log('true', { name: day[0], date: day[1].toString() })
       // console.log('epiphany', { day: epiphanyNames[6][1].toString() })
-      payload.push(makePayload({ name: day[0], dateTime: day[1], periodInfo }))
+      payload.push(
+        makePayload({ name: day[0], dateTime: day[1], periodInfo, period })
+      )
     }
   }
 
   for (let i = 6; i < epiphanyNames.length; i++) {
     const name = epiphanyNames[i][0]
     const day = epiphanyNames[i][1]
-    payload.push(makePayload({ name, dateTime: day, periodInfo }))
+    payload.push(makePayload({ name, dateTime: day, periodInfo, period }))
   }
 
   return payload

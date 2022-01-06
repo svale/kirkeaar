@@ -5,6 +5,7 @@ import { lastSundayOfMonth } from '../utils/lastSundayOfMonth.js'
 import makePayload from '../utils/makePayload.js'
 
 const trinity = startYear => {
+  const period = 'trinity'
   const periodInfo = `Treenighetstiden er den største delen av Kirkeåret. Og strekker seg helt fra pinsetiden er ferdig og ut kirkeåret. 
   Altså frem til 1. søndag i Advent. Treenighetstiden har et fokus på vekst i det kristne livet.`
   const pinse = getPinse(startYear)
@@ -179,6 +180,7 @@ const trinity = startYear => {
         dateTime: day[1].startOf('day'),
         color: day[2],
         periodInfo,
+        period,
       })
     )
   }
@@ -193,7 +195,13 @@ const trinity = startYear => {
     const date = trinityNames[counter][1]
     const color = trinityNames[counter][2]
     payload.push(
-      makePayload({ name, dateTime: date.startOf('day'), color, periodInfo })
+      makePayload({
+        name,
+        dateTime: date.startOf('day'),
+        color,
+        periodInfo,
+        period,
+      })
     )
 
     counter++
@@ -217,7 +225,9 @@ const trinity = startYear => {
       const date = trinityEndingDays[1].dateTime.plus({ weeks: i })
       const color = 'green'
 
-      payload.push(makePayload({ name, dateTime: date, color, periodInfo }))
+      payload.push(
+        makePayload({ name, dateTime: date, color, periodInfo, period })
+      )
     }
     payload.push(trinityEndingDays[2])
   } else {

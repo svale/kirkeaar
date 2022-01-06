@@ -11,7 +11,15 @@ const advent = startYear => {
     const name = `${i + 1}. Søndag i Advent`
     const day = currentAdvent.startOf('day')
     const color = 'purple'
-    payload.push(makePayload({ name, dateTime: day, color, periodInfo: info }))
+    payload.push(
+      makePayload({
+        name,
+        dateTime: day,
+        color,
+        periodInfo: info,
+        period: 'advent',
+      })
+    )
   }
   return payload
 }

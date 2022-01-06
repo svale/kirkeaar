@@ -3,6 +3,7 @@ import { getComputus } from '../constants/computus.js'
 import makePayload from '../utils/makePayload.js'
 
 const pentacost = startYear => {
+  const period = 'pentacost'
   const periodInfo = `Pinsetiden feires til minne om pinsedag, da Disiplene mottok den Hellige Ånd, 
   og talte til folk på alle forskjellig språk, om Jesu død og oppstandelse.`
   const pinse = getPinse(startYear)
@@ -39,7 +40,13 @@ const pentacost = startYear => {
 
   for (let day of pentacostNames) {
     payload.push(
-      makePayload({ name: day[0], dateTime: day[1], color: day[2], periodInfo })
+      makePayload({
+        name: day[0],
+        dateTime: day[1],
+        color: day[2],
+        periodInfo,
+        period,
+      })
     )
   }
   return payload
