@@ -3,6 +3,8 @@ import { getComputus } from '../constants/computus.js'
 import makePayload from '../utils/makePayload.js'
 
 const lent = startYear => {
+  const periodInfo = `I kirkehistorien har de viktigste periodene også fått fastetider, som forberedelsestid. Påskefasten er den store fastetiden i Kirkeåret.
+  Hvor en skal forberede seg på påsken som kommer.`
   const computus = getComputus(startYear)
   const askeonsdag = getAskeonsdag(startYear)
   const lentNames = [
@@ -47,7 +49,9 @@ const lent = startYear => {
 
   // console.log(computus.toString())
   for (let day of lentNames) {
-    payload.push(makePayload(day[0], day[1], day[2]))
+    payload.push(
+      makePayload({ name: day[0], dateTime: day[1], color: day[2], periodInfo })
+    )
   }
 
   return payload

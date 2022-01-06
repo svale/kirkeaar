@@ -4,6 +4,8 @@ import { getPinse } from '../constants/pinse.js'
 import makePayload from '../utils/makePayload.js'
 
 const easter = startYear => {
+  const periodInfo = `Påsketiden er den viktigste delen av kirkeåret, da feires Jesu død og oppstandelse. Påsketiden innledes med den påskeuken,
+  så fortsetter påsketiden fra påskedag til Pinse.`
   const computus = getComputus(startYear)
   const pinse = getPinse(startYear)
   const easterNames = [
@@ -36,7 +38,9 @@ const easter = startYear => {
   const payload = []
 
   for (let day of easterNames) {
-    payload.push(makePayload(day[0], day[1], day[2]))
+    payload.push(
+      makePayload({ name: day[0], dateTime: day[1], color: day[2], periodInfo })
+    )
   }
 
   const EasterPentacostInterval = Interval.fromDateTimes(computus, pinse)
@@ -47,7 +51,7 @@ const easter = startYear => {
     const day = computus.endOf('week').plus({ week }).startOf('day')
     const color = 'white'
 
-    payload.push(makePayload(name, day, color))
+    payload.push(makePayload({ name, dateTime: day, color, periodInfo }))
     easterSundays -= 1
   }
 

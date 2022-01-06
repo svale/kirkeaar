@@ -2,6 +2,7 @@ import { getChristmasEve } from '../constants/christmasEve.js'
 import makePayload from '../utils/makePayload.js'
 
 const christmas = startYear => {
+  const periodInfo = `I juletiden feires Jesu fødsel`
   const christmasEve = getChristmasEve(startYear)
   const christmasName = [
     [
@@ -34,7 +35,9 @@ const christmas = startYear => {
   let payload = []
 
   for (let day of christmasName) {
-    payload.push(makePayload(day[0], day[1]))
+    payload.push(
+      makePayload({ name: day[0], dateTime: day[1], color: day[2], periodInfo })
+    )
   }
 
   return payload
