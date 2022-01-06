@@ -149,7 +149,7 @@ const trinity = startYear => {
   const trinityEndingNames = [
     [
       'Bots og Bønnedag',
-      lastSundayOfMonth(DateTime.local(startYear + 1, 10)),
+      lastSundayOfMonth(DateTime.fromISO(`${startYear + 1}-10-01`)),
       'purple',
     ],
     [

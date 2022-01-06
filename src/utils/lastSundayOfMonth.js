@@ -9,7 +9,7 @@ const lastSundayOfMonth = date => {
     dateTime = date
   }
 
-  let endOfMonth = dateTime.setZone('Europe/Oslo').endOf('month').startOf('day')
+  let endOfMonth = dateTime.endOf('month').startOf('day')
   while (endOfMonth.toFormat('E') != 7) {
     endOfMonth = endOfMonth.minus({ day: 1 })
   }
