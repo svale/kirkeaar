@@ -5,11 +5,11 @@ import { lent } from './lent.js'
 import { easter } from './easter.js'
 import { pentacost } from './pentacost.js'
 import { trinity } from './trinity.js'
-
-// From constants.js
+import { commemorativeDays } from './commemorative.js'
 import { calculateStartYear } from '../utils/calculateStartYear.js'
+import makePayload from '../utils/makePayload.js'
 
-const churchYear = ({ date, year }) => {
+const churchYear = ({ date, year, commemorative = false }) => {
   // Constants
   // console.info({ date, year })
   let startYear
@@ -41,7 +41,20 @@ const churchYear = ({ date, year }) => {
     ...pentacostDays,
     ...trinityDays,
   ]
-  console.log({ churchYear: payload })
+  if (commemorative === true) {
+    const days = commemorativeDays(startYear)
+    for (let day of days) {
+      payload.push(
+        makePayload({
+          startYear,
+          name: day[0],
+          dateTime: day[1],
+          period: 'commemorative',
+        })
+      )
+    }
+  }
+  // console.log({ churchYear: payload })
   return payload
 }
 

@@ -2,11 +2,11 @@ import churchYear from '../periods/churchYear.js'
 import { calculateStartYear } from './calculateStartYear.js'
 import { dateCheck } from './dateCheck.js'
 
-const findByDate = ({ query }) => {
+const findByDate = ({ query, commemorative }) => {
   // {query: year[-month]-[day]}
   const date = dateCheck(query)
   const startYear = calculateStartYear(date)
-  const year = churchYear({ year: startYear })
+  const year = churchYear({ year: startYear, commemorative })
   const regexQuery = new RegExp(`^${query}.*`, 'gi')
   const filter = year.filter(day => {
     return day.day.match(regexQuery)

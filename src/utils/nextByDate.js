@@ -2,20 +2,20 @@ import churchYear from '../periods/churchYear.js'
 import { nextDay } from './nextDay.js'
 import { dateCheck } from './dateCheck.js'
 
-const nextByDate = date => {
-  let dateTime
-
-  dateTime = dateCheck(date)
+const nextByDate = ({ date, commemorative }) => {
+  let dateTime = dateCheck(date)
   // startYear = calculateStartYear(dateTime)
 
-  const churchYearArray = churchYear({ date: dateTime })
-  let search = churchYearArray.find(element =>
+  const churchYearArray = churchYear({ date: dateTime, commemorative })
+  let search = churchYearArray.filter(element =>
     element.dateTime.hasSame(dateTime, 'day')
   )
+  // console.log(search)
 
-  while (search === undefined) {
+  while (search.length === 0) {
     dateTime = nextDay(dateTime)
-    search = churchYearArray.find(element =>
+    // console.log({ checkDate: dateTime })
+    search = churchYearArray.filter(element =>
       element.dateTime.hasSame(dateTime, 'day')
     )
   }

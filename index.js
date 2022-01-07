@@ -14,4 +14,9 @@ const church = {
 
 export default church
 
-// churchYear({ year: 2021 })
+// churchYear({ year: 2021, commemorative: true }).forEach(day => {
+//   console.log({ tz: day.dateTime.zoneName, day: day.name })
+// })
+// console.log(findByName({ query: '2 åpenbaring', commemorative: true }))
+console.log(nextByDate({ date: '2022-02-05', commemorative: true }))
+// console.log(findByDate({ query: '2022-02-09' }))

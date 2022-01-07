@@ -12,10 +12,10 @@ const makePayload = ({
   return {
     years: `${startYear}-${startYear + 1}`,
     name,
-    day: dateTime.toString(),
-    dateTime: dateTime.startOf('day'),
+    day: dateTime.setZone('Europe/Oslo').toString(),
+    dateTime: dateTime.setZone('Europe/Oslo').startOf('day'),
     liturgical_color: COLORS[color],
-    periodInfo: periodInfo.trim(),
+    periodInfo: periodInfo,
     period,
     ...otherContent,
   }

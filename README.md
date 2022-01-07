@@ -8,52 +8,57 @@ npm install church-year
 import {nextByDate, churchYear, findByName} from 'church-year'
 ```
 
-## nextByDate(date)
+## nextByDate({date, commemorative})
 
 ```js
-nextByDate('2021 04 20')
-nextByDate('2021 20 juni')
-nextByDate('20 juni 2021')
-nextByDate('2021-04-31')
-nextByDate(isLuxonDateTime)
+nextByDate({ date: '2021 04 20'})
+nextByDate({ date: '2021 20 juni'})
+nextByDate({ date: '20 juni 2021'})
+nextByDate({ date: '2021-04-31'})
+nextByDate({ date: isLuxonDateTime})
 ```
-
+`nextByDate()` takes an object with a date parameter, as shown above, and returns an array of filtered results based on that date. It is an array, since commemorative days, might fall on the same sundays as regular church year sundays.
+By default `nextByDate({date, commemorative: false})`, so if commemorative days are needed set it to true.
 Output:
 ```js
-{
-  name: '5. Søndag i Treenighetstiden',
-  day: '2021-06-27T23:59:59.999+01:00',
-  dateTime: DateTime {
-    ts: 1624748400000,
-    _zone: FixedOffsetZone { fixed: 60 },
-    loc: Locale {
-      locale: 'en-US',
-      numberingSystem: null,
-      outputCalendar: null,
-      intl: 'en-US',
-      weekdaysCache: [Object],
-      monthsCache: [Object],
-      meridiemCache: null,
-      eraCache: {},
-      specifiedLocale: null,
-      fastNumbersCached: null
+[
+  {
+    years: '2021-2022',
+    name: '6. Søndag i Åpenbaringstiden',
+    day: '2022-02-06T00:00:00.000+01:00',
+    dateTime: DateTime {
+      ts: 1644102000000,
+      _zone: [IANAZone],
+      loc: [Locale],
+      invalid: null,
+      weekData: null,
+      c: [Object],
+      o: 60,
+      isLuxonDateTime: true
     },
-    invalid: null,
-    weekData: null,
-    c: {
-      year: 2021,
-      month: 6,
-      day: 27,
-      hour: 0,
-      minute: 0,
-      second: 0,
-      millisecond: 0
-    },
-    o: 60,
-    isLuxonDateTime: true
+    liturgical_color: { name: 'Grønn', hsl: 'hsla(103, 42%, 30%, 1)' },
+    periodInfo: 'Åpenbaringstiden går fra Kristi Åpenbaringsdag, som er første søndag etter nyttår, og helt frem til fastetiden før påsken',
+    period: 'epiphany'
   },
-  liturgical_color: { name: 'Grønn', hsl: 'hsla(103, 42%, 30%, 1)' }
-}
+  {
+    years: '2021-2022',
+    name: 'Samefolkets dag',
+    day: '2022-02-06T00:00:00.000+01:00',
+    dateTime: DateTime {
+      ts: 1644102000000,
+      _zone: [IANAZone],
+      loc: [Locale],
+      invalid: null,
+      weekData: null,
+      c: [Object],
+      o: 60,
+      isLuxonDateTime: true
+    },
+    liturgical_color: { name: 'Grønn', hsl: 'hsla(103, 42%, 30%, 1)' },
+    periodInfo: undefined,
+    period: 'commemorative'
+  }
+]
 ```
 
 ## findByName({query, startYear})
