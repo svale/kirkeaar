@@ -133,5 +133,6 @@ churchYear({year: '2021', commemorative: true})
 - [ ] include minnedager
   - check all functions to work with {commemorative}
   - update readme
+  - move 'nyttårsdag' to commemorative?
 - [x] include informasjon om dag og/eller periode
 - [x] startYear is hardcoded, needs to be dynamic. *startYear is now dynamic based on current date*
