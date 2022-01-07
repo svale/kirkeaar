@@ -37,6 +37,7 @@ const christmas = startYear => {
   for (let day of christmasName) {
     payload.push(
       makePayload({
+        startYear,
         name: day[0],
         dateTime: day[1],
         color: day[2],

@@ -57,7 +57,13 @@ const epiphany = startYear => {
       // console.log('true', { name: day[0], date: day[1].toString() })
       // console.log('epiphany', { day: epiphanyNames[6][1].toString() })
       payload.push(
-        makePayload({ name: day[0], dateTime: day[1], periodInfo, period })
+        makePayload({
+          startYear,
+          name: day[0],
+          dateTime: day[1],
+          periodInfo,
+          period,
+        })
       )
     }
   }
@@ -65,7 +71,9 @@ const epiphany = startYear => {
   for (let i = 6; i < epiphanyNames.length; i++) {
     const name = epiphanyNames[i][0]
     const day = epiphanyNames[i][1]
-    payload.push(makePayload({ name, dateTime: day, periodInfo, period }))
+    payload.push(
+      makePayload({ startYear, name, dateTime: day, periodInfo, period })
+    )
   }
 
   return payload

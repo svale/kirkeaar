@@ -176,6 +176,7 @@ const trinity = startYear => {
   for (let day of trinityEndingNames) {
     trinityEndingDays.push(
       makePayload({
+        startYear,
         name: day[0],
         dateTime: day[1].startOf('day'),
         color: day[2],
@@ -196,6 +197,7 @@ const trinity = startYear => {
     const color = trinityNames[counter][2]
     payload.push(
       makePayload({
+        startYear,
         name,
         dateTime: date.startOf('day'),
         color,
@@ -226,7 +228,14 @@ const trinity = startYear => {
       const color = 'green'
 
       payload.push(
-        makePayload({ name, dateTime: date, color, periodInfo, period })
+        makePayload({
+          startYear,
+          name,
+          dateTime: date,
+          color,
+          periodInfo,
+          period,
+        })
       )
     }
     payload.push(trinityEndingDays[2])

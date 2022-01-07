@@ -11,7 +11,7 @@ const pentacost = startYear => {
   const pentacostNames = [
     [
       'Kristi Himmelfartsdag',
-      computus.plus({ days: 40 }).startOf('day'),
+      computus.plus({ days: 39 }).startOf('day'),
       'white',
     ],
     [
@@ -41,6 +41,7 @@ const pentacost = startYear => {
   for (let day of pentacostNames) {
     payload.push(
       makePayload({
+        startYear,
         name: day[0],
         dateTime: day[1],
         color: day[2],

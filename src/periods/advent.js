@@ -13,6 +13,7 @@ const advent = startYear => {
     const color = 'purple'
     payload.push(
       makePayload({
+        startYear,
         name,
         dateTime: day,
         color,

@@ -41,6 +41,7 @@ const easter = startYear => {
   for (let day of easterNames) {
     payload.push(
       makePayload({
+        startYear,
         name: day[0],
         dateTime: day[1],
         color: day[2],
@@ -59,7 +60,7 @@ const easter = startYear => {
     const color = 'white'
 
     payload.push(
-      makePayload({ name, dateTime: day, color, periodInfo, period })
+      makePayload({ startYear, name, dateTime: day, color, periodInfo, period })
     )
     easterSundays -= 1
   }
