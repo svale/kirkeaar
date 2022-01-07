@@ -38,9 +38,9 @@ const trinity = startYear => {
       'green',
     ],
     [
-      '6. Søndag i Treenighetstiden',
+      '6. Søndag i Treenighetstiden | Aposteldagen',
       pinse.plus({ weeks: 6 }).endOf('week'),
-      'purple',
+      'red',
     ],
     [
       '7. Søndag i Treenighetstiden',
@@ -78,7 +78,7 @@ const trinity = startYear => {
       'green',
     ],
     [
-      '14. Søndag i Treenighetstiden',
+      '14. Søndag i Treenighetstiden | Vingårdssøndagen',
       pinse.plus({ weeks: 14 }).endOf('week'),
       'green',
     ],
