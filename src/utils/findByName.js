@@ -15,8 +15,9 @@ const safeString = query => {
 const findByName = ({
   query,
   startYear = calculateStartYear(DateTime.now()),
+  commemorative,
 }) => {
-  const year = churchYear({ year: startYear })
+  const year = churchYear({ year: startYear, commemorative })
   const regexQuery = new RegExp(safeString(query), 'gi')
   const filter = year.filter(day => {
     return day.name.match(regexQuery)
