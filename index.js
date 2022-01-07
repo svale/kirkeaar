@@ -13,5 +13,3 @@ const church = {
 }
 
 export default church
-
-console.log(findByName({ query: '3 åpenbaring', startYear: 2021 }))
