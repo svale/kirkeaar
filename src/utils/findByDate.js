@@ -3,6 +3,7 @@ import { calculateStartYear } from './calculateStartYear.js'
 import { dateCheck } from './dateCheck.js'
 
 const findByDate = ({ query }) => {
+  // {query: year[-month]-[day]}
   const date = dateCheck(query)
   const startYear = calculateStartYear(date)
   const year = churchYear({ year: startYear })
@@ -16,5 +17,5 @@ const findByDate = ({ query }) => {
 }
 export { findByDate }
 
-const r = findByDate({ query: '2023-12' })
-console.log(r)
+// const r = findByDate({ query: '2022-01-09' })
+// console.log(r)
