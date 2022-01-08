@@ -1,4 +1,5 @@
 import { COLORS } from '../constants/colors.js'
+import { getReadings } from '../readings/getReadings.js'
 
 const makePayload = ({
   startYear,
@@ -17,6 +18,7 @@ const makePayload = ({
     liturgical_color: COLORS[color],
     periodInfo: periodInfo,
     period,
+    readings: getReadings({ day: name }),
     ...otherContent,
   }
 }
