@@ -18,7 +18,7 @@ nextByDate({ date: '2021-04-31'})
 nextByDate({ date: isLuxonDateTime})
 ```
 `nextByDate()` takes an object with a date parameter, as shown above, and returns an array of filtered results based on that date. It is an array, since commemorative days, might fall on the same sundays as regular church year sundays.
-By default `nextByDate({date, commemorative: false})`, so if commemorative days are needed set it to true.
+By default `nextByDate({date, commemorative: true})`, so if commemorative days are not needed set it to false.
 ```js
 nextByDate({ date: '2022-02-06', commemorative: true})
 ```
@@ -73,9 +73,9 @@ findByDate({query: '2022-01'}) // Entire month of january 2022
 findByDate({query: '2022-01-09'}) // Only the day 9. january 2022
 ```
 
-You can also include `commemorative: true` in the object passed as argument to also include the commemorative days. Example:
+You can also include `commemorative: false` in the object passed as argument to exclude the commemorative days.
 ```js
-findByDate({query: '2022-02-06', commemorative: true}) // Only the day 9. january 2022
+findByDate({query: '2022-02-06', commemorative: false}) // Only the day 6. january 2022
 ```
 
 ## findByName({query, startYear, commemorative})
@@ -92,7 +92,7 @@ The query matched with regex.
 `.` gets escaped to `.*`
 Samee goes for `-`and `_`gets escaped to `.*`
 
-`{commemorative: false}` is the default, so it needs to be specified as `true` to also include commemorative days in the search
+`{commemorative: true}` is the default, so it needs to be specified as `false` to exclude from search.
 
 Output:
 ```js
@@ -124,7 +124,7 @@ Output:
 ```js
 churchYear({date: '2022-01-07'})
 churchYear({year: '2021'})
-churchYear({year: '2021', commemorative: true})
+churchYear({year: '2021', commemorative: false})
 ```
 
 # ToDo

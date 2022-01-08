@@ -9,7 +9,7 @@ import { commemorativeDays } from './commemorative.js'
 import { calculateStartYear } from '../utils/calculateStartYear.js'
 import makePayload from '../utils/makePayload.js'
 
-const churchYear = ({ date, year, commemorative = false }) => {
+const churchYear = ({ date, year, commemorative = true }) => {
   // Constants
   // console.info({ date, year })
   let startYear
@@ -43,12 +43,16 @@ const churchYear = ({ date, year, commemorative = false }) => {
   ]
   if (commemorative === true) {
     const days = commemorativeDays(startYear)
+    // commemorative days do not have liturgical color on index[2]
+    // but rather information about the day, and if color is specified it is at [3]
     for (let day of days) {
       payload.push(
         makePayload({
           startYear,
           name: day[0],
           dateTime: day[1],
+          periodInfo: day[2],
+          color: day[3],
           period: 'commemorative',
         })
       )

@@ -16,18 +16,13 @@ const christmas = startYear => {
       'white',
     ],
     [
-      '2. Juledag',
+      '2. Juledag - Stefanusdagen',
       christmasEve.plus({ day: 2 }),
       'red',
     ],
     [
       'Nyttårsaften',
       christmasEve.endOf('year').startOf('day'),
-      'white',
-    ],
-    [
-      'Nyttårsdag',
-      christmasEve.endOf('year').plus({ day: 1 }).startOf('day'),
       'white',
     ],
   ]
