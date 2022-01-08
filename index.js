@@ -13,3 +13,8 @@ const church = {
 }
 
 export default church
+
+const y = churchYear({ year: 2021 })
+for (let day of y) {
+  console.log(`"${day.name}": {},`)
+}
