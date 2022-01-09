@@ -1,6 +1,6 @@
 {
   "name": "church-year",
-  "version": "0.2.17",
+  "version": "0.2.20",
   "description": "Module for å regne ut kirkeårsdagene i Den Norske Kirke",
   "type": "module",
   "homepage": "https://github.com/ArnstadFredrik/kirkeaar",

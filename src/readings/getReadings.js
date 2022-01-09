@@ -27,7 +27,6 @@ const getReadings = ({ day, number, startYear }) => {
   const diff = Math.abs((startYear - 2019) % 3)
   const allReadings = formatReadings(readingsList[day])
   let currentReadingName
-  let currentReadings = {}
 
   if ('A' in allReadings) {
     currentReadingName = 'A'
@@ -35,10 +34,16 @@ const getReadings = ({ day, number, startYear }) => {
     currentReadingName = readingListNames[diff]
   }
 
+  let currentReadings = { name: currentReadingName }
+
   if ('F' in allReadings) {
-    currentReadings.F = allReadings.F
+    currentReadings.text = {
+      F: allReadings.F,
+      ...allReadings[currentReadingName],
+    }
   }
-  currentReadings[currentReadingName] = allReadings[currentReadingName]
+
+  // currentReadings[currentReadingName] = allReadings[currentReadingName]
 
   let payload = {
     allReadings: allReadings,

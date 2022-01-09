@@ -261,9 +261,9 @@ const readingsList = new function() {
       'Luk 12,35-40',
     ],
     III: [
-      'Sal 119,80-83',
-      'Kol 1,24-29',
-      'Luk 12,35-40',
+      'Ordsp 4,18-27',
+      'Åp 22,12-17',
+      'Mark 13,21-27',
     ],
     F: [
       'Mark 4,35-41',

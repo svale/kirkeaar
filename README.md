@@ -131,11 +131,17 @@ churchYear({year: '2021', commemorative: false})
 ```
 
 # ToDo
+- [ ] Kirkeårsdager med alternativt navn, må må et altName felt. som også er søkbart.
+  - NB: Oppdatter tekstrekke når navn på kirkeårsdag bytter. Eventuelt ordne med ID, for hver dag
+- [ ] Pinseaften, currentReadings er tom. Har ikke F, så alt blir utlatt, skriv om getReadings.
+- [ ] Påskenatt/Påskeaften har fire tekstrekker I,II,III,IV, med kun en evangelietekst.
+  - Feil tekst velges, og må navngis E, ikke L1
 - [x] Bots og bønnedag 2018-2019 skal være 27.oktober, får 3.nov
 - [x] inkluder kirkeårstekster
 - [x] include minnedager
   - check all functions to work with {commemorative}
   - update readme
   - move 'nyttårsdag' to commemorative?
+  - [ ] har Allehelgensdag, men ikke minnedag, hva er forskjellen? Minne dag og tekster må med
 - [x] include informasjon om dag og/eller periode
 - [x] startYear is hardcoded, needs to be dynamic. *startYear is now dynamic based on current date*
