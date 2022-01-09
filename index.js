@@ -13,6 +13,3 @@ const church = {
 }
 
 export default church
-
-const y = churchYear({ year: 2021 })
-console.log(y)

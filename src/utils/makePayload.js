@@ -18,7 +18,7 @@ const makePayload = ({
     liturgical_color: COLORS[color],
     periodInfo: periodInfo,
     period,
-    readings: getReadings({ day: name }),
+    readings: getReadings({ day: name, startYear }),
     ...otherContent,
   }
 }

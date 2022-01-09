@@ -41,7 +41,8 @@ Output:
     },
     liturgical_color: { name: 'Grønn', hsl: 'hsla(103, 42%, 30%, 1)' },
     periodInfo: 'Åpenbaringstiden går fra Kristi Åpenbaringsdag, som er første søndag etter nyttår, og helt frem til fastetiden før påsken',
-    period: 'epiphany'
+    period: 'epiphany',
+    readings: { allReadings: [Object], currentReadings: [Object] }
   },
   {
     years: '2021-2022',
@@ -58,8 +59,9 @@ Output:
       isLuxonDateTime: true
     },
     liturgical_color: { name: 'Grønn', hsl: 'hsla(103, 42%, 30%, 1)' },
-    periodInfo: undefined,
-    period: 'commemorative'
+    periodInfo: 'Samefolkets dag ble av samene i Norden i 1992 erlkært som en felles samisk nasjonaldag',
+    period: 'commemorative',
+    readings: { allReadings: [Object], currentReadings: [Object] }
   }
 ]
 ```
@@ -96,7 +98,7 @@ Samee goes for `-`and `_`gets escaped to `.*`
 
 Output:
 ```js
-[
+[[
   {
     years: '2021-2022',
     name: '3. Søndag i Åpenbaringstiden',
@@ -113,7 +115,8 @@ Output:
     },
     liturgical_color: { name: 'Grønn', hsl: 'hsla(103, 42%, 30%, 1)' },
     periodInfo: 'Åpenbaringstiden går fra Kristi Åpenbaringsdag, som er første søndag etter nyttår, og helt frem til fastetiden før påsken',
-    period: 'epiphany'
+    period: 'epiphany',
+    readings: { allReadings: [Object], currentReadings: [Object] }
   }
 ]
 ```
@@ -129,8 +132,8 @@ churchYear({year: '2021', commemorative: false})
 
 # ToDo
 - [x] Bots og bønnedag 2018-2019 skal være 27.oktober, får 3.nov
-
-- [ ] include minnedager
+- [x] inkluder kirkeårstekster
+- [x] include minnedager
   - check all functions to work with {commemorative}
   - update readme
   - move 'nyttårsdag' to commemorative?
