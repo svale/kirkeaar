@@ -7,9 +7,16 @@ const formatReadings = readings => {
     if (readingType === 'F') {
       payload[readingType] = text[0]
     } else if (readings[readingType].length === 1) {
-        payload[readingType] = {
-            E: text[0]
-        }
+      payload[readingType] = {
+        E: text[0],
+      }
+    } else if (readings[readingType].length === 4) {
+      payload[readingType] = {
+        L1: text[0],
+        L2: text[1],
+        L3: text[2],
+        E: text[3],
+      }
     } else {
       payload[readingType] = {
         L1: text[0],
@@ -21,18 +28,23 @@ const formatReadings = readings => {
 
   return payload
 }
+
 const getReadings = ({ day, number, startYear }) => {
   if (!day) return Error('No day')
   const readingListNames = [
     'I',
     'II',
     'III',
+    'VI',
   ]
   const diff = Math.abs((startYear - 2019) % 3)
+  const langfredagNumber = Math.abs((startYear - 2018) % 4)
   const allReadings = formatReadings(readingsList[day])
   let currentReadingName
 
-  if ('A' in allReadings) {
+  if (day === 'Langfredag') {
+    currentReadingName = readingListNames[langfredagNumber]
+  } else if ('A' in allReadings) {
     currentReadingName = 'A'
   } else {
     currentReadingName = readingListNames[diff]
@@ -46,9 +58,9 @@ const getReadings = ({ day, number, startYear }) => {
       F: allReadings.F,
     }
   } else {
-      currentReadings.text = {
-          ...allReadings[currentReadingName],
-      }
+    currentReadings.text = {
+      ...allReadings[currentReadingName],
+    }
   }
 
   // currentReadings[currentReadingName] = allReadings[currentReadingName]
