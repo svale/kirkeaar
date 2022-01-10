@@ -6,6 +6,10 @@ const formatReadings = readings => {
     const text = readings[readingType]
     if (readingType === 'F') {
       payload[readingType] = text[0]
+    } else if (readings[readingType].length === 1) {
+        payload[readingType] = {
+            E: text[0]
+        }
     } else {
       payload[readingType] = {
         L1: text[0],
@@ -38,9 +42,13 @@ const getReadings = ({ day, number, startYear }) => {
 
   if ('F' in allReadings) {
     currentReadings.text = {
-      F: allReadings.F,
       ...allReadings[currentReadingName],
+      F: allReadings.F,
     }
+  } else {
+      currentReadings.text = {
+          ...allReadings[currentReadingName],
+      }
   }
 
   // currentReadings[currentReadingName] = allReadings[currentReadingName]
