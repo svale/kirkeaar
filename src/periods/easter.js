@@ -3,48 +3,56 @@ import { getComputus } from '../constants/computus.js'
 import { getPinse } from '../constants/pinse.js'
 import makePayload from '../utils/makePayload.js'
 
+const getDays = startYear => {
+  const computus = getComputus(startYear)
+  const pinse = getPinse(startYear)
+  const days = [
+    {
+      name: 'Skjærtorsdag',
+      date: computus.minus({ days: 3 }),
+      color: 'white',
+    },
+    {
+      name: 'Langfredag',
+      date: computus.minus({ day: 2 }),
+      color: 'white',
+    },
+    {
+      name: 'Påskenatt',
+      altName: 'Ottesang',
+      date: computus.minus({ day: 1 }),
+      color: 'white',
+    },
+    {
+      name: 'Påskedag',
+      date: computus,
+      color: 'white',
+    },
+    {
+      name: '2. Påskedag',
+      date: computus.plus({ days: 1 }),
+      color: 'white',
+    },
+  ]
+
+  return { days, computus, pinse }
+}
 const easter = startYear => {
   const period = 'easter'
   const periodInfo = `Påsketiden er den viktigste delen av kirkeåret, da feires Jesu død og oppstandelse. Påsketiden innledes med den påskeuken,
   så fortsetter påsketiden fra påskedag til Pinse.`
-  const computus = getComputus(startYear)
-  const pinse = getPinse(startYear)
-  const easterNames = [
-    [
-      'Skjærtorsdag',
-      computus.minus({ days: 3 }),
-      'white',
-    ],
-    [
-      'Langfredag',
-      computus.minus({ day: 2 }),
-      'white',
-    ],
-    [
-      'Påskenatt',
-      computus.minus({ day: 1 }),
-      'white',
-    ],
-    [
-      'Påskedag',
-      computus,
-      'white',
-    ],
-    [
-      '2. Påskedag',
-      computus.plus({ days: 1 }),
-      'white',
-    ],
-  ]
   const payload = []
 
-  for (let day of easterNames) {
+  const { days: easterNames, computus, pinse } = getDays(startYear)
+
+  for (let { name, altName, date: dateTime, color } of easterNames) {
     payload.push(
       makePayload({
         startYear,
-        name: day[0],
-        dateTime: day[1],
-        color: day[2],
+        name,
+        altName,
+        dateTime,
+        color,
         periodInfo,
         period,
       })

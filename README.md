@@ -5,7 +5,12 @@
 npm install church-year
 ```
 ```js
-import {nextByDate, churchYear, findByName} from 'church-year'
+import {
+  nextByDate, 
+  churchYear, 
+  findByName, 
+  findByDate
+} from 'church-year'
 ```
 
 ## nextByDate({date, commemorative})
@@ -96,9 +101,12 @@ Samee goes for `-`and `_`gets escaped to `.*`
 
 `{commemorative: true}` is the default, so it needs to be specified as `false` to exclude from search.
 
+findByName also searched the altName field, on the days that have altName,
+for example '6. Søndag i Treenighetstiden', that also is named 'Aposteldagen'
+
 Output:
 ```js
-[[
+[
   {
     years: '2021-2022',
     name: '3. Søndag i Åpenbaringstiden',
@@ -131,7 +139,7 @@ churchYear({year: '2021', commemorative: false})
 ```
 
 # ToDo
-- [ ] Kirkeårsdager med alternativt navn, må må et altName felt. som også er søkbart.
+- [x] Kirkeårsdager med alternativt navn, må må et altName felt. som også er søkbart.
   - NB: Oppdatter tekstrekke når navn på kirkeårsdag bytter. Eventuelt ordne med ID, for hver dag
 - [x] Pinseaften, currentReadings er tom. Har ikke F, så alt blir utlatt, skriv om getReadings.
 - [x] Langfredag har fire tekstrekker I,II,III,IV, med kun en tekst: evangelietekst.

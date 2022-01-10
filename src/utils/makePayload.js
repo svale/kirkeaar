@@ -9,8 +9,9 @@ const makePayload = ({
   periodInfo,
   period,
   otherContent,
+  altName,
 }) => {
-  return {
+  const payload = {
     years: `${startYear}-${startYear + 1}`,
     name,
     day: dateTime.setZone('Europe/Oslo').toString(),
@@ -21,6 +22,8 @@ const makePayload = ({
     readings: getReadings({ day: name, startYear }),
     ...otherContent,
   }
+  if (altName) payload.altName = altName
+  return payload
 }
 
 export default makePayload

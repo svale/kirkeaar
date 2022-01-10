@@ -1,46 +1,58 @@
 import { getChristmasEve } from '../constants/christmasEve.js'
 import makePayload from '../utils/makePayload.js'
 
-const christmasDays = [
-  {
-    name: 'Julaften',
-    date: christmasEve,
-    color: 'white',
-  },
-  {
-    name: 'Juledag',
-    date: christmasEve.plus({ days: 1 }),
-    color: 'white',
-  },
-  {
-    name: '2. Juledag',
-    altName: 'Stefanusdagen',
-    date: christmasEve.plus({ day: 2 }),
-    color: 'red',
-  },
-  {
-    name: 'Nyttårsaften',
-    date: christmasEve.endOf('year').startOf('day'),
-    color: 'white',
-  },
-]
+const getDays = startYear => {
+  const christmasEve = getChristmasEve(startYear)
+  const payload = [
+    {
+      name: 'Julaften',
+      altName: 'Ottesang',
+      date: christmasEve,
+      color: 'white',
+    },
+    {
+      name: 'Juledag',
+      date: christmasEve.plus({ days: 1 }),
+      color: 'white',
+    },
+    {
+      name: '2. Juledag',
+      altName: 'Stefanusdagen',
+      date: christmasEve.plus({ day: 2 }),
+      color: 'red',
+    },
+    {
+      name: 'Nyttårsaften',
+      date: christmasEve.endOf('year').startOf('day'),
+      color: 'white',
+    },
+  ]
+  return payload
+}
 
 const christmas = startYear => {
   const periodInfo = `I juletiden feires Jesu fødsel`
-  const christmasEve = getChristmasEve(startYear)
+  const christmasDays = getDays(startYear)
   let payload = []
 
-  for (let day of christmasName) {
-    payload.push(
-      makePayload({
-        startYear,
-        name: day[0],
-        dateTime: day[1],
-        color: day[2],
-        periodInfo,
-        period: 'christmas',
-      })
-    )
+  for (let {
+    name,
+    altName,
+    date: dateTime,
+    color,
+    info: periodInfo,
+  } of christmasDays) {
+    const result = {
+      startYear,
+      name,
+      altName,
+      dateTime,
+      color,
+      periodInfo,
+      period: 'christmas',
+    }
+    // if ('altName' in day) result.altName = day.altName
+    payload.push(makePayload(result))
   }
 
   return payload

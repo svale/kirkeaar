@@ -19,14 +19,23 @@ const findByName = ({
 }) => {
   const year = churchYear({ year: startYear, commemorative })
   const regexQuery = new RegExp(safeString(query), 'gi')
-  const filter = year.filter(day => {
+  const normalNames = year.filter(day => {
     return day.name.match(regexQuery)
   })
+  const altNames = year.filter(day => {
+    if (!('altName' in day)) return
+    return day.altName.match(regexQuery)
+  })
+  const filter = [
+    ...normalNames,
+    ...altNames,
+  ]
+
   const payload = { filter, regexQuery, year, startYear }
   console.log({ findByName: payload })
   return filter
 }
 export { findByName }
 
-// console.log(findByName({ query: '3 åpenbaring', startYear: 2019 }))
+console.log(findByName({ query: 'otte', startYear: 2019 }))
 // console.log(findByName({ query: '3 åpenbaring' }))

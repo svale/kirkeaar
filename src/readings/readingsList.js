@@ -102,7 +102,7 @@ const readingsList = new function() {
     ],
   }
 
-  this['2. Juledag - Stefanusdagen'] = {
+  this['2. Juledag'] = {
     I: [
       'Jer 31,5-17',
       'Apg 7,52-60',
@@ -872,7 +872,7 @@ const readingsList = new function() {
     ],
   }
 
-  this['6. Søndag i Treenighetstiden - Aposteldagen'] = {
+  this['6. Søndag i Treenighetstiden'] = {
     I: [
       '1 Mos 12,1-4',
       'Rom 1,1-7',
@@ -1040,7 +1040,7 @@ const readingsList = new function() {
     ],
   }
 
-  this['14. Søndag i Treenighetstiden - Vingårdssøndagen'] = {
+  this['14. Søndag i Treenighetstiden'] = {
     I: [
       'Jes 27,2-6',
       '1 Kor 1,1-3',
@@ -1343,7 +1343,7 @@ const readingsList = new function() {
     ],
   }
 
-  this['Nyttårsdag - Jesu navnedag'] = {
+  this['Nyttårsdag'] = {
     I: [
       '4 Mos 6,22-27',
       'Fil 2,5-11',
@@ -1438,7 +1438,7 @@ const readingsList = new function() {
     ],
   }
 
-  this['Sankthansdagen/Jonsok'] = {
+  this['Sankthansdagen'] = {
     I: [
       'Dom 13,2-7.24-25',
       'Hebr 11,1-2.32b-34.38-40',
