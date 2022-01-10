@@ -143,6 +143,6 @@ churchYear({year: '2021', commemorative: false})
   - check all functions to work with {commemorative}
   - update readme
   - move 'nyttårsdag' to commemorative?
-  - [ ] har Allehelgensdag, men ikke minnedag, hva er forskjellen? Minne dag og tekster må med
+  - [x] har Allehelgensdag, men ikke minnedag, hva er forskjellen? Minne dag og tekster må med
 - [x] include informasjon om dag og/eller periode
 - [x] startYear is hardcoded, needs to be dynamic. *startYear is now dynamic based on current date*

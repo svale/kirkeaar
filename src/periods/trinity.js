@@ -164,6 +164,14 @@ const trinity = startYear => {
       'white',
     ],
     [
+      'Minnedag',
+      DateTime.fromISO(`${startYear + 1}-11-01`)
+        .setZone('Europe/Oslo')
+        .startOf('month')
+        .endOf('week'),
+      'white',
+    ],
+    [
       'Kristi kongedag',
       firstSundayOfAdventNextYear.minus({ weeks: 1 }).setZone('Europe/Oslo'),
     ],

@@ -35,10 +35,10 @@ const getReadings = ({ day, number, startYear }) => {
     'I',
     'II',
     'III',
-    'VI',
+    'IV',
   ]
-  const diff = Math.abs((startYear - 2019) % 3)
-  const langfredagNumber = Math.abs((startYear - 2018) % 4)
+  const diff = Math.abs((startYear - 1983) % 3)
+  const langfredagNumber = Math.abs((startYear - 1982) % 4)
   const allReadings = formatReadings(readingsList[day])
   let currentReadingName
 
