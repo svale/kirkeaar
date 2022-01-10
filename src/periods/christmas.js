@@ -1,32 +1,33 @@
 import { getChristmasEve } from '../constants/christmasEve.js'
 import makePayload from '../utils/makePayload.js'
 
+const christmasDays = [
+  {
+    name: 'Julaften',
+    date: christmasEve,
+    color: 'white',
+  },
+  {
+    name: 'Juledag',
+    date: christmasEve.plus({ days: 1 }),
+    color: 'white',
+  },
+  {
+    name: '2. Juledag',
+    altName: 'Stefanusdagen',
+    date: christmasEve.plus({ day: 2 }),
+    color: 'red',
+  },
+  {
+    name: 'Nyttårsaften',
+    date: christmasEve.endOf('year').startOf('day'),
+    color: 'white',
+  },
+]
+
 const christmas = startYear => {
   const periodInfo = `I juletiden feires Jesu fødsel`
   const christmasEve = getChristmasEve(startYear)
-  const christmasName = [
-    [
-      'Julaften',
-      christmasEve,
-      'white',
-    ],
-    [
-      'Juledag',
-      christmasEve.plus({ days: 1 }),
-      'white',
-    ],
-    [
-      '2. Juledag - Stefanusdagen',
-      christmasEve.plus({ day: 2 }),
-      'red',
-    ],
-    [
-      'Nyttårsaften',
-      christmasEve.endOf('year').startOf('day'),
-      'white',
-    ],
-  ]
-
   let payload = []
 
   for (let day of christmasName) {
