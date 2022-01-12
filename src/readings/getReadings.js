@@ -31,6 +31,7 @@ const formatReadings = readings => {
 
 const getReadings = ({ day, number, startYear }) => {
   if (!day) return Error('No day')
+
   const readingListNames = [
     'I',
     'II',
@@ -73,3 +74,5 @@ const getReadings = ({ day, number, startYear }) => {
 }
 
 export { getReadings }
+
+console.log(getReadings({day: '1. Søndag i Advent', startYear: 2021}))

@@ -1,4 +1,5 @@
 import { COLORS } from '../constants/colors.js'
+import { getPrayers } from '../readings/getPrayers.js'
 import { getReadings } from '../readings/getReadings.js'
 
 const makePayload = ({
@@ -20,6 +21,7 @@ const makePayload = ({
     periodInfo: periodInfo,
     period,
     readings: getReadings({ day: name, startYear }),
+    prayer: getPrayers({ day: name }),
     ...otherContent,
   }
   if (altName) payload.altName = altName
