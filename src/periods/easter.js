@@ -11,27 +11,32 @@ const getDays = startYear => {
       name: 'Skjærtorsdag',
       date: computus.minus({ days: 3 }),
       color: 'white',
+      id: 'easter-thursdag',
     },
     {
       name: 'Langfredag',
       date: computus.minus({ day: 2 }),
       color: 'white',
+      id: 'easter-friday',
     },
     {
       name: 'Påskenatt',
       altName: 'Ottesang',
       date: computus.minus({ day: 1 }),
       color: 'white',
+      id: 'easter-night',
     },
     {
       name: 'Påskedag',
       date: computus,
       color: 'white',
+      id: 'easter-day',
     },
     {
       name: '2. Påskedag',
       date: computus.plus({ days: 1 }),
       color: 'white',
+      id: 'easter-day-2',
     },
   ]
 
@@ -45,7 +50,7 @@ const easter = startYear => {
 
   const { days: easterNames, computus, pinse } = getDays(startYear)
 
-  for (let { name, altName, date: dateTime, color } of easterNames) {
+  for (let { name, altName, date: dateTime, color, id } of easterNames) {
     payload.push(
       makePayload({
         startYear,
@@ -55,6 +60,7 @@ const easter = startYear => {
         color,
         periodInfo,
         period,
+        otherContent: { id },
       })
     )
   }
@@ -64,11 +70,20 @@ const easter = startYear => {
   while (easterSundays > 2) {
     const week = 7 - (easterSundays - 1)
     let name = `${week + 1}. Søndag i Påsketiden`
+    let id = `${week + 1}-sunday-easter`
     const day = computus.endOf('week').plus({ week }).startOf('day')
     const color = 'white'
 
     payload.push(
-      makePayload({ startYear, name, dateTime: day, color, periodInfo, period })
+      makePayload({
+        startYear,
+        name,
+        dateTime: day,
+        color,
+        periodInfo,
+        period,
+        otherContent: { id },
+      })
     )
     easterSundays -= 1
   }

@@ -8,56 +8,64 @@ const lent = startYear => {
   Hvor en skal forberede seg på påsken som kommer.`
   const computus = getComputus(startYear)
   const askeonsdag = getAskeonsdag(startYear)
+
   const lentNames = [
-    [
-      'Askeonsdag',
-      askeonsdag,
-      'purple',
-    ],
-    [
-      '1. Søndag i Fastetiden',
-      computus.minus({ weeks: 6 }).endOf('week').startOf('day'),
-      'purple',
-    ],
-    [
-      '2. Søndag i Fastetiden',
-      computus.minus({ weeks: 5 }).endOf('week').startOf('day'),
-      'purple',
-    ],
-    [
-      '3. Søndag i Fastetiden',
-      computus.minus({ weeks: 4 }).endOf('week').startOf('day'),
-      'purple',
-    ],
-    [
-      'Maria Budskapsdag',
-      computus.minus({ weeks: 3 }).endOf('week').startOf('day'),
-      'white',
-    ],
-    [
-      '4. Søndag i Fastetiden',
-      computus.minus({ weeks: 2 }).endOf('week').startOf('day'),
-      'purple',
-    ],
-    [
-      'Palmesøndag',
-      computus.minus({ weeks: 1 }).endOf('week').startOf('day'),
-      'purple',
-    ],
+    {
+      name: 'Askeonsdag',
+      date: askeonsdag,
+      color: 'purple',
+      id: 'ash-wednesday',
+    },
+    {
+      name: '1. Søndag i Fastetiden',
+      date: computus.minus({ weeks: 6 }).endOf('week').startOf('day'),
+      color: 'purple',
+      id: '1-sunday-lent',
+    },
+    {
+      name: '2. Søndag i Fastetiden',
+      date: computus.minus({ weeks: 5 }).endOf('week').startOf('day'),
+      color: 'purple',
+      id: '2-sunday-lent',
+    },
+    {
+      name: '3. Søndag i Fastetiden',
+      date: computus.minus({ weeks: 4 }).endOf('week').startOf('day'),
+      color: 'purple',
+      id: '3-sunday-lent',
+    },
+    {
+      name: 'Maria Budskapsdag',
+      date: computus.minus({ weeks: 3 }).endOf('week').startOf('day'),
+      color: 'white',
+      id: 'mary-sunday-lent',
+    },
+    {
+      name: '4. Søndag i Fastetiden',
+      date: computus.minus({ weeks: 2 }).endOf('week').startOf('day'),
+      color: 'purple',
+      id: '4-sunday-lent',
+    },
+    {
+      name: 'Palmesøndag',
+      date: computus.minus({ weeks: 1 }).endOf('week').startOf('day'),
+      color: 'purple',
+      id: 'palm-sunday',
+    },
   ]
 
   const payload = []
 
-  // console.log(computus.toString())
   for (let day of lentNames) {
     payload.push(
       makePayload({
         startYear,
-        name: day[0],
-        dateTime: day[1],
-        color: day[2],
+        name: day.name,
+        dateTime: day.date,
+        color: day.color,
         periodInfo,
         period,
+        otherContent: { id: day.id },
       })
     )
   }

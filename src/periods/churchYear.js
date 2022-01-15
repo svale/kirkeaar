@@ -52,6 +52,7 @@ const churchYear = ({ date, year, commemorative = true }) => {
       date: dateTime,
       color,
       info: periodInfo,
+      id,
     } of days) {
       payload.push(
         makePayload({
@@ -62,6 +63,7 @@ const churchYear = ({ date, year, commemorative = true }) => {
           periodInfo,
           color,
           period: 'commemorative',
+          otherContent: { id },
         })
       )
     }

@@ -9,22 +9,26 @@ const getDays = startYear => {
       altName: 'Ottesang',
       date: christmasEve,
       color: 'white',
+      id: '1-christmas',
     },
     {
       name: 'Juledag',
       date: christmasEve.plus({ days: 1 }),
       color: 'white',
+      id: '2-christmas',
     },
     {
       name: '2. Juledag',
       altName: 'Stefanusdagen',
       date: christmasEve.plus({ day: 2 }),
       color: 'red',
+      id: '3-christmas',
     },
     {
       name: 'Nyttårsaften',
       date: christmasEve.endOf('year').startOf('day'),
       color: 'white',
+      id: 'newyear',
     },
   ]
   return payload
@@ -35,7 +39,7 @@ const christmas = startYear => {
   const christmasDays = getDays(startYear)
   let payload = []
 
-  for (let { name, altName, date: dateTime, color } of christmasDays) {
+  for (let { name, altName, date: dateTime, color, id } of christmasDays) {
     const result = {
       startYear,
       name,
@@ -44,6 +48,7 @@ const christmas = startYear => {
       color,
       periodInfo,
       period: 'christmas',
+      otherContent: { id },
     }
     // if ('altName' in day) result.altName = day.altName
     payload.push(makePayload(result))

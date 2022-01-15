@@ -9,6 +9,7 @@ const advent = startYear => {
     const firstAdvent = calculateFirstAdvent(startYear)
     const currentAdvent = firstAdvent.plus({ weeks: i })
     let name = `${i + 1}. Søndag i Advent`
+    let id = `${i + 1}-sunday-advent`
     const day = currentAdvent.startOf('day')
     const color = 'purple'
     payload.push(
@@ -19,6 +20,7 @@ const advent = startYear => {
         color,
         periodInfo: info,
         period: 'advent',
+        otherContent: { id },
       })
     )
   }

@@ -14,3 +14,10 @@ const church = {
 }
 
 export default church
+
+let y
+y = churchYear({ year: 2018 })
+
+for (let day of y) {
+  console.log({ name: day.name, id: day.id })
+}
