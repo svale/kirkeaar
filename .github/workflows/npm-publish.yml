@@ -21,3 +21,10 @@ jobs:
         uses: KageKirin/bump-node-package-version@v0.0.1
         with:
           patch: true
+      
+      - name: Commit to new version
+        run: |
+          git commit -am "CI: bump version to ${{ steps.test.package_version.version }}"
+          git tag -m "CI: create new tag" v${{ steps.test.package_version.version }}
+          git push --follow-tags https://${{ github.token }}@github.com/OWNER/REPO
+
