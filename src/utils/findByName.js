@@ -37,5 +37,5 @@ const findByName = ({
 }
 export { findByName }
 
-console.log(findByName({ query: 'otte', startYear: 2019 }))
+// console.log(findByName({ query: 'otte', startYear: 2019 }))
 // console.log(findByName({ query: '3 åpenbaring' }))

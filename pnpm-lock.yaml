@@ -1,0 +1,20 @@
+lockfileVersion: 5.3
+
+specifiers:
+  computus: ^1.0.5
+  luxon: ^2.2.0
+
+dependencies:
+  computus: 1.0.6
+  luxon: 2.3.0
+
+packages:
+
+  /computus/1.0.6:
+    resolution: {integrity: sha512-6ZC9IMwK+dhckGuMxEglQE3Yz7NKLRCbgNycfViOpuIy0H8BCErZC5qN9dW2je9fRm8s65qVVZ0ewfeVGKS2fw==}
+    dev: false
+
+  /luxon/2.3.0:
+    resolution: {integrity: sha512-gv6jZCV+gGIrVKhO90yrsn8qXPKD8HYZJtrUDSfEbow8Tkw84T9OnCyJhWvnJIaIF/tBuiAjZuQHUt1LddX2mg==}
+    engines: {node: '>=12'}
+    dev: false

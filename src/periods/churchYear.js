@@ -41,6 +41,7 @@ const churchYear = ({ date, year, commemorative = true }) => {
     ...pentacostDays,
     ...trinityDays,
   ]
+
   if (commemorative === true) {
     const days = commemorativeDays(startYear)
     // commemorative days do not have liturgical color on index[2]
@@ -64,6 +65,12 @@ const churchYear = ({ date, year, commemorative = true }) => {
         })
       )
     }
+
+    payload.sort((a, b) => {
+      if (a.dateTime > b.dateTime) return 1
+      if (a.dateTime < b.dateTime) return -1
+      return 0
+    })
   }
   // console.log({ churchYear: payload })
   return payload

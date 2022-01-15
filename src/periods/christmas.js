@@ -35,13 +35,7 @@ const christmas = startYear => {
   const christmasDays = getDays(startYear)
   let payload = []
 
-  for (let {
-    name,
-    altName,
-    date: dateTime,
-    color,
-    info: periodInfo,
-  } of christmasDays) {
+  for (let { name, altName, date: dateTime, color } of christmasDays) {
     const result = {
       startYear,
       name,
