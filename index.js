@@ -3,7 +3,6 @@ import { findByName } from './src/utils/findByName.js'
 import { findByDate } from './src/utils/findByDate.js'
 import churchYear from './src/periods/churchYear.js'
 import { calculateStartYear } from './src/utils/calculateStartYear.js'
-import { DateTime } from 'luxon'
 
 const church = {
   nextByDate,
@@ -14,10 +13,3 @@ const church = {
 }
 
 export default church
-
-let y
-y = churchYear({ year: 2018 })
-
-for (let day of y) {
-  console.log({ name: day.name, id: day.id })
-}
