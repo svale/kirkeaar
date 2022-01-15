@@ -28,5 +28,5 @@ jobs:
       - name: Commit to new version
         uses: stefanzweifel/git-auto-commit-action@v4.13.1
         with: 
-          commit_message: "CI: bump version to ${{ steps.package_version.version}}"
-          tagging_message: "CI: create tag v${{ steps.package_version.version}}"
+          commit_message: "CI: bump version to ${{ steps.package_version.outputs.version}}"
+          tagging_message: "CI: create tag v${{ steps.package_version.outputs.version}}"
