@@ -15,7 +15,7 @@ const makePayload = ({
   const payload = {
     years: `${startYear}-${startYear + 1}`,
     name,
-    day: dateTime.setZone('Europe/Oslo').toString(),
+    day: dateTime.setZone('Europe/Oslo').startOf('day').toString(),
     dateTime: dateTime.setZone('Europe/Oslo').startOf('day'),
     liturgical_color: COLORS[color],
     periodInfo: periodInfo,
