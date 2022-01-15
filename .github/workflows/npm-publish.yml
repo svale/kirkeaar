@@ -26,11 +26,16 @@ jobs:
           name: Release ${{ steps.package_version.outputs.version }}
           body: ${{ steps.package_version.outputs.changelog }}
 
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v4.13.1
+        with:
+          commit_message: "CI: bump package.json to ${{ steps.package_version.outputs.version}}"
+
   publish:
     needs: bump
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 17
