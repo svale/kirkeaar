@@ -1,10 +1,31 @@
 on: 
   push:
-    tags:
-      - v*
+    branches: main
 
 jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Bump Node Package Version
+        id: package_version
+      # You may pin to the exact commit or the version.
+      # uses: KageKirin/bump-node-package-version@f31832006eff01a8b09319f1ec4588ae1ebdcd5d
+        uses: KageKirin/bump-node-package-version@v0.0.1
+        with:
+          patch: true
+      
+      - name: Create a GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.package_version.outputs.version }}
+          name: Release ${{ steps.package_version.outputs.version }}
+          body: ${{ steps.package_version.outputs.changelog }}
+
   publish:
+    needs: bump
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
