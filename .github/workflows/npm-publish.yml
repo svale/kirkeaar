@@ -26,5 +26,5 @@ jobs:
         run: |
           git commit -am "CI: bump version to ${{ steps.test.package_version.version }}"
           git tag -m "CI: create new tag" v${{ steps.test.package_version.version }}
-          git push --follow-tags https://${{ github.token }}@github.com/OWNER/REPO
+          git push --follow-tags https://${{ secrets.GITHUB_TOKEN }}@github.com/ArnstadFredrik/kirkeaar
 
