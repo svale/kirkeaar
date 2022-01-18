@@ -14,6 +14,9 @@ const substitute = (dateString, index, separator) => {
 const dateCheck = input => {
   if (input.isLuxonDateTime) {
     return input
+  } else if (Object.prototype.toString.call(input) === Object.prototype.toString.call(new Date)) {
+      return DateTime.fromJSDate(input)
+      // is JS Date
   } else if (input.match(/^[1-9][0-9][0-9][0-9] [0-1][0-9]? [0-3][0-9]?$/)) {
     // 2021 12 31 | YYYY MM DD
     return DateTime.fromISO(input.replaceAll(' ', '-')).setZone('Europe/Oslo')

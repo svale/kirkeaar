@@ -13,6 +13,10 @@ import {
 } from 'church-year'
 ```
 
+```js
+import church from 'church-year'
+```
+
 ## nextByDate({date, commemorative})
 
 ```js

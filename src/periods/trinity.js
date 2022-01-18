@@ -286,7 +286,6 @@ const trinity = startYear => {
       trinityEndingDays[2],
     ]
     for (let i = 1; i < intervalAllehelgensKongedag.length('weeks'); i++) {
-      console.log({ i, weeks: intervalAllehelgensKongedag.length('weeks') })
       const number = payload.length - 1
       const { name, date, id, color, altName } = trinityNames[number]
 

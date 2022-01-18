@@ -1,8 +1,8 @@
 import { calculateFirstAdvent } from './calculateFirstAdvent.js'
 import { dateCheck } from './dateCheck.js'
 
-const calculateStartYear = date => {
-  const luxonDate = dateCheck(date)
+const calculateStartYear = inputDate => {
+  const date = dateCheck(inputDate)
   const firstAdvent = calculateFirstAdvent(date.year)
   const kongedag = firstAdvent.minus({ weeks: 1 })
   if (date <= kongedag) {

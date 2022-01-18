@@ -16,10 +16,10 @@ const churchYear = ({ date, year, commemorative = true }) => {
 
   if (year) {
     startYear = Number(year)
-    console.info('Generating based on year')
+    console.info('Generating based on year:', year)
   } else {
     startYear = calculateStartYear(date)
-    console.info('Generating based on date')
+    console.info('Generating based on date:', date)
   }
   // console.log(bug)
 
