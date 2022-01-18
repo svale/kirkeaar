@@ -16,7 +16,7 @@ const commemorativeDays = startYear => {
       id: 'kyndelsmesse',
       date: DateTime.fromISO(`${startYear + 1}-02-02`),
       info:
-        'Marias renselsesfest, til minne om da Jesus barnet ble bært frem i tempelet (Luk 2,22-40)',
+        'Marias renselsesfest, til minne om da Jesus barnet ble båret frem i tempelet (Luk 2,22-40)',
     },
     {
       name: 'Samefolkets dag',
