@@ -8,6 +8,8 @@ on:
 jobs:
   bump:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.package_version.outputs.version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -36,13 +38,26 @@ jobs:
     needs: bump
     runs-on: ubuntu-latest
     steps:
+      - name: Version
+        id: version
+        run: "echo ::set-output name=version::$(echo ${{ needs.bump.outputs.version }} | sed 's/^v//')"
+
       - uses: actions/checkout@v2
         with:
           ref: 'main'
+
       - uses: actions/setup-node@v1
         with:
           node-version: 17
+
       - run: npm install
+
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
+
+      - name: Notify Discord
+        uses: fateyan/action-discord-notifier@v1
+        with:
+          message-title:  church-year:${{ steps.version.outputs.version}} published to npm
+          webhook: ${{ secrets.DISCORD}}
