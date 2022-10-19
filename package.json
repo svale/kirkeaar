@@ -9,6 +9,7 @@
   },
   "main": "index.js",
   "module": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo 'no test configured'"
   },
