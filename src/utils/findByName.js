@@ -32,7 +32,7 @@ const findByName = ({
   ]
 
   const payload = { filter, regexQuery, year, startYear }
-  console.log({ findByName: payload })
+  //console.log({ findByName: payload })
   return filter
 }
 export { findByName }
