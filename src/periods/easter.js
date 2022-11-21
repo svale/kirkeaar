@@ -67,8 +67,8 @@ const easter = startYear => {
 
   const EasterPentacostInterval = Interval.fromDateTimes(computus, pinse)
   let easterSundays = Math.floor(EasterPentacostInterval.length('weeks'))
-  while (easterSundays > 2) {
-    const week = 7 - (easterSundays - 1)
+  while (easterSundays >= 2) {
+    const week = 7 - easterSundays
     let name = `${week + 1}. Søndag i Påsketiden`
     let id = `${week + 1}-sunday-easter`
     const day = computus.endOf('week').plus({ week }).startOf('day')
@@ -87,7 +87,6 @@ const easter = startYear => {
     )
     easterSundays -= 1
   }
-
   return payload
 }
 
