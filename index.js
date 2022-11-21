@@ -13,6 +13,3 @@ const church = {
 }
 
 export default church
-
-let query = church.churchYear({ date: new Date() })
-console.log(query)
