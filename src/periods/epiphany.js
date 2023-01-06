@@ -70,6 +70,7 @@ const epiphany = startYear => {
           startYear,
           name: day.name,
           dateTime: day.date,
+          color: day.color,
           periodInfo,
           period,
           otherContent: { id: day.id },
