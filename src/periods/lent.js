@@ -1,62 +1,77 @@
 import { getAskeonsdag } from '../constants/askeonsdag.js'
 import { getComputus } from '../constants/computus.js'
 import makePayload from '../utils/makePayload.js'
+import { DateTime } from 'luxon'
+import { getBebudelse } from '../constants/bebudelse.js'
 
 const lent = startYear => {
   const period = 'lent'
   const periodInfo = `I kirkehistorien har de viktigste periodene også fått fastetider, som forberedelsestid. Påskefasten er den store fastetiden i Kirkeåret.
   Hvor en skal forberede seg på påsken som kommer.`
   const computus = getComputus(startYear)
-  const askeonsdag = getAskeonsdag(startYear)
+  const askeonsdagDate = getAskeonsdag(startYear)
+  const palmSundayDate = computus.minus({week: 1}).startOf('day')
+  const mariaBudskapsdag = getBebudelse(startYear)
 
-  const lentNames = [
+  const ashWednesday =
     {
       name: 'Askeonsdag',
-      date: askeonsdag,
+      date: askeonsdagDate,
       color: 'purple',
       id: 'ash-wednesday',
-    },
-    {
-      name: '1. Søndag i Fastetiden',
-      date: computus.minus({ weeks: 6 }).endOf('week').startOf('day'),
-      color: 'purple',
-      id: '1-sunday-lent',
-    },
-    {
-      name: '2. Søndag i Fastetiden',
-      date: computus.minus({ weeks: 5 }).endOf('week').startOf('day'),
-      color: 'purple',
-      id: '2-sunday-lent',
-    },
-    {
-      name: '3. Søndag i Fastetiden',
-      date: computus.minus({ weeks: 4 }).endOf('week').startOf('day'),
-      color: 'purple',
-      id: '3-sunday-lent',
-    },
-    {
-      name: 'Maria Budskapsdag',
-      date: computus.minus({ weeks: 3 }).endOf('week').startOf('day'),
-      color: 'white',
-      id: 'mary-sunday-lent',
-    },
-    {
-      name: '4. Søndag i Fastetiden',
-      date: computus.minus({ weeks: 2 }).endOf('week').startOf('day'),
-      color: 'purple',
-      id: '4-sunday-lent',
-    },
+    }
+
+  const palmSunday =
     {
       name: 'Palmesøndag',
-      date: computus.minus({ weeks: 1 }).endOf('week').startOf('day'),
+      date: palmSundayDate,
       color: 'purple',
       id: 'palm-sunday',
-    },
-  ]
+    }
+
+
+  // List over sundays from 1. sønday of lent
+  // to 4. sunday of lent
+  // including maria bebudelsesdag
+  let lentSundayDayList = []
+
+  for ( let i = 1; i <=5; i++ ) {
+    lentSundayDayList = [palmSundayDate.minus({week: i}), ...lentSundayDayList]
+  }
+
+  let lent = [ashWednesday, palmSunday]
+  let dayNumber = 1
+
+  for ( let day of lentSundayDayList ) {
+    let sunday = {}
+    if (day.hasSame(mariaBudskapsdag, 'day')) {
+      sunday = {
+        name: 'Maria Budskapsdag',
+        date: mariaBudskapsdag,
+        color: 'white',
+        id: 'mary-sunday-lent',
+      }
+    } else {
+      sunday = {
+        name: `${dayNumber}. Søndag i Fastetiden`,
+        date: day,
+        color: 'purple',
+        id: `${dayNumber}-sunday-lent`,
+      }
+      dayNumber++
+    }
+    lent = [sunday, ...lent]
+  }
+
+  lent = lent.sort((a,b) => {
+    return (a.date < b.date) ? -1 : 1
+  })
+
+
+
 
   const payload = []
-
-  for (let day of lentNames) {
+  for (let day of lent) {
     payload.push(
       makePayload({
         startYear,
