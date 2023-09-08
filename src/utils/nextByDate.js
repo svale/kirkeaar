@@ -26,7 +26,7 @@ const nextByDate = ({ date, commemorative }) => {
     result: search,
   }
 
-  console.log({ nextByDate: results })
+  //console.log({ nextByDate: results })
   return search
 }
 

@@ -1403,7 +1403,7 @@ const readingsList = new function() {
       'Luk 6,31-36',
     ],
     II: [
-      'Amos 8,4-7',
+      'Am 8,4-7',
       'Jak 2,1-9',
       'Luk 14,12-14',
     ],
