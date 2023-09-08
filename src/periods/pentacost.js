@@ -38,7 +38,7 @@ const pentacost = startYear => {
       name: '2. Pinsedag',
       date: pinse.plus({ day: 1 }),
       color: 'red',
-      id: '4-pentacost',
+      id: '5-pentacost',
     },
   ]
 
