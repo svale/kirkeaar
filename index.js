@@ -13,4 +13,11 @@ const church = {
   findByDate,
 }
 
+export {
+  nextByDate,
+  churchYear,
+  findByName,
+  calculateStartYear,
+  findByDate,
+}
 export default church
