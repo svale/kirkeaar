@@ -1342,6 +1342,9 @@ const readingsList = new function() {
   this['26. Søndag i Treenighetstiden'] = {
     ...this['4. Søndag i Åpenbaringstiden'],
   }
+  this['27. Søndag i Treenighetstiden'] = {
+    ...this['3. Søndag i Åpenbaringstiden'],
+  }
   this['Kristi kongedag'] = {
     I: [
       'Jes 57,14-16',
